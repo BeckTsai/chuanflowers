@@ -1,0 +1,161 @@
+<template>
+  <div :class="[{ 'scroll-active': scrollActive }]">
+    <div class="cover-bg" />
+    <div class="logo">
+      <img src="~/assets/image/home/logo.png" alt="chuanflowers" />
+    </div>
+    <div :class="['menu-btn', { 'menu-active': btnStatus }]" @click="btnStatus = !btnStatus">
+      <div class="menu-line" />
+      <div class="menu-line" />
+      <div class="menu-text">Menu</div>
+    </div>
+    <Nuxt />
+    <tplFooter />
+  </div>
+</template>
+<script>
+import tplFooter from '@/components/Footer'
+
+export default {
+  components: {
+    tplFooter,
+  },
+  data() {
+    return {
+      btnStatus: false,
+      scrollActive: false,
+    }
+  },
+  mounted() {
+    const swiperHeight = document.querySelector('#slider').offsetHeight
+    window.addEventListener('scroll', () => {
+      this.scrollActive = window.pageYOffset > swiperHeight - 100
+    })
+  },
+  beforeDestroy() {
+    const swiperHeight = document.querySelector('#slider').offsetHeight
+    window.removeEventListener('scroll', () => {
+      this.scrollActive = window.pageYOffset > swiperHeight - 100
+    })
+  },
+}
+</script>
+
+<style lang="scss">
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Averia Serif Libre', cursive, 'Noto Serif TC', serif, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  color: $grey3;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.serif-text {
+  font-family: 'Noto Serif TC', serif;
+}
+</style>
+
+<style lang="scss" scoped>
+.logo {
+  position: fixed;
+  top: 38px;
+  left: 96px;
+  width: 118px;
+  z-index: 3;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+}
+
+.menu-btn {
+  position: fixed;
+  width: 40px;
+  height: 10px;
+  top: 52px;
+  right: 83px;
+  z-index: 3;
+  color: #fff;
+  cursor: pointer;
+}
+
+.menu-line {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border: 1px solid #c9c9c9;
+  transition: transform 0.4s, top 0.4s 0.4s, background-color 0.5s;
+
+  &:first-child {
+    top: 0;
+    margin-bottom: 5px;
+  }
+}
+
+.menu-text {
+  position: absolute;
+  top: 100%;
+  animation: fadeInDown 0.4s;
+}
+
+.menu-active {
+  .menu-line {
+    top: 50%;
+    transform: rotate(45deg);
+    transition: top 0.4s, transform 0.4s 0.4s;
+
+    &:first-child {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .menu-text {
+    opacity: 0;
+    transition: opacity 0.4s;
+    animation: fadeOutRight 0.4s;
+  }
+}
+
+.cover-bg {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  transform: translate3d(0, -100%, 0);
+  transition: 0.4s;
+  z-index: 3;
+}
+
+.scroll-active {
+  .cover-bg {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .menu-line {
+    border-color: #000;
+  }
+
+  .menu-text {
+    color: #000;
+  }
+}
+</style>
