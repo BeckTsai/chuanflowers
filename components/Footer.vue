@@ -1,6 +1,6 @@
 <template>
   <div class="container-wrap">
-    <div class="left">
+    <div class="left position-relative">
       <div class="items-list d-flex">
         <div class="items-wrap">
           <div class="title">PROJECT</div>
@@ -32,6 +32,7 @@
           </div>
         </div>
       </div>
+      <div class="copy-right position-absolute">Copyright © CHUAN FLOWERS. All rights reserved.</div>
     </div>
     <div class="right">
       <div class="title">CHUAN FLOWERS</div>
@@ -99,6 +100,12 @@ export default {
   .title {
     margin-bottom: 31px;
     font-size: 22px;
+    color: $pink;
+  }
+
+  .copy-right {
+    bottom: 0;
+    left: 0;
     color: $pink;
   }
 }

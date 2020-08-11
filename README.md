@@ -1,5 +1,7 @@
 # chuanflowers
 
+> My peachy Nuxt.js project
+
 ## Build Setup
 
 ```bash
