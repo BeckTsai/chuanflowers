@@ -19,7 +19,7 @@
             </div>
           </div>
           <div class="btn-wrap">
-            <div class="btn-text-wrap">
+            <div class="btn-text-wrap" @click="$router.push('courses')">
               <span class="btn-text">Read More</span>
               <b-icon icon="chevron-right" class="arrow-right" />
               <div class="btn-line" />

@@ -13,22 +13,22 @@
           </div>
         </div>
         <div class="items-wrap project-item">
-          <div class="title">PROJECT</div>
+          <div class="title">FOLLOW US</div>
           <div class="items">
-            <div class="item">
+            <div class="item" @click="clickHandler('https://www.facebook.com/chuanflowers')">
               <span class="btn-text">Facebook</span>
               <b-icon icon="chevron-right" class="arrow-right" />
             </div>
-            <div class="item">
+            <div class="item" @click="clickHandler('https://www.instagram.com/chuanflowers')">
               <span class="btn-text">Instagram</span>
               <b-icon icon="chevron-right" class="arrow-right" />
             </div>
           </div>
         </div>
         <div class="items-wrap">
-          <div class="title">FOLLOW US</div>
+          <div class="title">CONTACT</div>
           <div class="items">
-            <div class="item">chuanflowers@gmail.com</div>
+            <div class="item mail">chuanflowers@gmail.com</div>
           </div>
         </div>
       </div>
@@ -37,16 +37,20 @@
     <div class="right">
       <div class="title">CHUAN FLOWERS</div>
       <div class="subtitle serif-text">繾綣花藝工作室</div>
-      <div class="area-number">40351</div>
-      <div class="address serif-text">台中市西區長春街26巷1號</div>
-      <div class="en-address">No. 1, Ln. 26, Changchun St., West Dist., Taichung City 40351, Taiwan</div>
+      <div class="area-number">40349</div>
+      <div class="address serif-text">台中市西區中美街299巷14號1樓</div>
+      <div class="en-address">1F., No. 14, Ln. 229, Zhongmei St., West Dist., Taichung City 403, Taiwan</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  mounted() {},
+  methods: {
+    clickHandler(url) {
+      window.open(url)
+    },
+  },
 }
 </script>
 
@@ -54,7 +58,7 @@ export default {
 .container-wrap {
   display: flex;
   justify-content: space-between;
-  padding: 70px 10% 50px;
+  padding: 70px 5% 50px;
   background-color: $grey7;
 }
 
@@ -67,6 +71,10 @@ export default {
     .item {
       margin-bottom: 23px;
       cursor: pointer;
+
+      &.mail {
+        cursor: initial;
+      }
 
       .serif-text {
         margin-right: 12px;

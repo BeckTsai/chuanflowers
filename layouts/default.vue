@@ -1,10 +1,17 @@
 <template>
   <div :class="[{ 'scroll-active': scrollActive }]">
+    <!-- <Menu :class="['menu', { 'menu-show': !btnStatus }]" /> -->
+    <transition name="fade">
+      <Menu v-show="btnStatus" class="menu" @changeRoute="changeRoute" />
+    </transition>
     <div class="cover-bg" />
-    <div class="logo">
+    <div class="logo" @click="$router.push('/')">
       <img src="~/assets/image/home/logo.png" alt="chuanflowers" />
     </div>
-    <div :class="['menu-btn', { 'menu-active': btnStatus }]" @click="btnStatus = !btnStatus">
+    <div
+      :class="['menu-btn', { 'menu-active': btnStatus }, { 'other-page': $route.path !== '/' }]"
+      @click="btnStatus = !btnStatus"
+    >
       <div class="menu-line" />
       <div class="menu-line" />
       <div class="menu-text">Menu</div>
@@ -15,28 +22,44 @@
 </template>
 <script>
 import tplFooter from '@/components/Footer'
+import Menu from '@/components/Menu'
 
 export default {
   components: {
     tplFooter,
+    Menu,
+  },
+  provide() {
+    return {
+      clickBtn() {
+        this.btnStatus = !this.btnStatus
+      },
+    }
   },
   data() {
     return {
       btnStatus: false,
       scrollActive: false,
+      status: false,
     }
   },
   mounted() {
-    const swiperHeight = document.querySelector('#slider').offsetHeight
-    window.addEventListener('scroll', () => {
-      this.scrollActive = window.pageYOffset > swiperHeight - 100
-    })
+    this.swiperHeight()
+    window.scrollTo({ top: 0 })
   },
   beforeDestroy() {
-    const swiperHeight = document.querySelector('#slider').offsetHeight
-    window.removeEventListener('scroll', () => {
-      this.scrollActive = window.pageYOffset > swiperHeight - 100
-    })
+    this.swiperHeight()
+  },
+  methods: {
+    swiperHeight() {
+      let that = this
+      window.addEventListener('scroll', function () {
+        that.scrollActive = this.scrollY > this.outerHeight
+      })
+    },
+    changeRoute() {
+      this.btnStatus = false
+    },
   },
 }
 </script>
@@ -74,6 +97,35 @@ body {
 </style>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    display: none;
+  }
+}
+
 .logo {
   position: fixed;
   top: 38px;
@@ -87,14 +139,23 @@ body {
   }
 }
 
+.menu {
+  animation: fadeIn 0.3s;
+}
+
+.menu-show {
+  display: none;
+  animation: fadeOut 0.3s;
+}
+
 .menu-btn {
   position: fixed;
-  width: 40px;
+  width: 41px;
   height: 10px;
   top: 52px;
   right: 83px;
-  z-index: 3;
-  color: #fff;
+  z-index: 10;
+  color: $white;
   cursor: pointer;
 }
 
@@ -117,11 +178,20 @@ body {
   animation: fadeInDown 0.4s;
 }
 
+.other-page.menu-btn {
+  color: #000;
+
+  .menu-line {
+    border-color: #000;
+  }
+}
+
 .menu-active {
   .menu-line {
     top: 50%;
     transform: rotate(45deg);
     transition: top 0.4s, transform 0.4s 0.4s;
+    border-color: #000;
 
     &:first-child {
       transform: rotate(-45deg);

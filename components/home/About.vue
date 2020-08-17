@@ -26,7 +26,7 @@ export default {}
 .about-wrap {
   top: 81px;
   left: 207px;
-  width: 100%;
+  width: 60%;
 }
 
 .about-title {
@@ -64,7 +64,7 @@ export default {}
   padding-left: 26px;
   background-color: $pink;
   font-size: 22px;
-  width: 100%;
+  width: 80%;
   z-index: 2;
 }
 
