@@ -8,7 +8,7 @@
         <div class="title serif-text">{{ resultList[0].zhText }}</div>
       </div>
       <div class="img-list">
-        <div v-for="(item, idx) in imgItems" :key="idx" class="img-wrap">
+        <div v-for="(item, idx) in imgItems" :key="idx" class="img-wrap" @click="clickHandler(idx)">
           <img
             v-lazy="require(`@/assets/image/project${item.src}`)"
             :class="[{ 'straight-picture': item.isStraight }]"
@@ -19,6 +19,41 @@
       <div class="works-title">OTHER WORKS</div>
       <WorksList :route="route" />
     </div>
+    <transition name="fade">
+      <div v-if="popupStatus" class="swiper-contain">
+        <div class="head">
+          <div class="tag">
+            <div class="subtitle">{{ resultList[0].enText }}</div>
+            <div class="title serif-text">{{ resultList[0].zhText }}</div>
+          </div>
+          <div class="close-btn" @click="popupStatus = false">
+            <b-icon icon="x" />
+          </div>
+        </div>
+        <div class="swiper-top">
+          <div ref="swiperTop" v-swiper="swiperOption" class="swiper-wrap">
+            <div class="swiper-wrapper">
+              <div v-for="(item, index) in imgItems" :key="`top-${index}`" class="swiper-slide">
+                <img v-lazy="require(`@/assets/image/project${item.src}`)" />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev swiper-button-white"></div>
+          <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+        <client-only>
+          <swiper ref="swiperThumbs" class="swiper swiper-thumbs" :options="swiperOptionThumbs">
+            <swiper-slide v-for="(item, index) in imgItems" :key="`thumbss-${index}`" class="swiper-slide">
+              <img
+                v-lazy="require(`@/assets/image/project${item.src}`)"
+                :class="[{ 'straight-picture': item.isStraight }]"
+                @click="onSwiperClick(index)"
+              />
+            </swiper-slide>
+          </swiper>
+        </client-only>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -32,6 +67,25 @@ export default {
   data() {
     return {
       route: this.$route.params.project,
+      activeIndex: null,
+      popupStatus: false,
+      swiperOption: {
+        speed: 1000,
+        navigation: {
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next',
+        },
+        on: {
+          init: () => {
+            this.$nextTick(() => {
+              this.onSwiperClick(this.activeIndex)
+            })
+          },
+        },
+      },
+      swiperOptionThumbs: {
+        speed: 1000,
+      },
       list: [
         {
           name: 'floral_bouquet',
@@ -57,6 +111,7 @@ export default {
       ],
     }
   },
+  transition: 'default',
   computed: {
     imgItems() {
       return imgList[this.route]
@@ -72,11 +127,150 @@ export default {
 
       return resultList
     },
+    curIndex() {
+      return this.$refs.swiperTop.activeIndex
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
+  },
+  methods: {
+    onSwiperClick(index) {
+      this.$refs.swiperTop.swiper.slideTo(index, 1000)
+    },
+    clickHandler(index) {
+      this.activeIndex = index
+      this.popupStatus = true
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.default-enter-active,
+.default-leave-active {
+  transition: opacity 0.5s;
+}
+.default-enter,
+.default-leave-to {
+  opacity: 0;
+}
+.default-enter-to,
+.default-leave {
+  opacity: 1;
+}
+
+.swiper-contain {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  z-index: 10;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin: 41px 87px 7% 94px;
+
+  .subtitle {
+    font-size: 30px;
+  }
+
+  .title {
+    font-size: 15px;
+
+    &.serif-text {
+      margin-bottom: 0;
+    }
+  }
+
+  .close-btn {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      color: #000;
+      transition: 0.2s;
+
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+}
+
+.swiper-top {
+  .swiper-wrap {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  .swiper-slide {
+    height: 506px;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+    }
+  }
+  .swiper-button-white {
+    outline: none;
+    color: $pink;
+  }
+}
+
+.swiper-thumbs {
+  display: flex;
+  margin-top: 4%;
+  padding: 0 43px;
+  .swiper-slide {
+    position: relative;
+    width: 141px !important;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 29px;
+    cursor: pointer;
+
+    img {
+      position: absolute;
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+
+      &.straight-picture {
+        top: -109px;
+      }
+    }
+  }
+}
+
+.swiper-button-next {
+  right: 107px;
+}
+
+.swiper-button-prev {
+  left: 107px;
+}
+
 .works {
   padding: 175px 0 77px;
   background-color: $white;
@@ -155,5 +349,13 @@ export default {
 .works-title {
   font-size: 15px;
   margin-bottom: 77px;
+}
+
+@media screen and (max-width: $noteBook) {
+  .swiper-top {
+    .swiper-slide {
+      height: 400px;
+    }
+  }
 }
 </style>

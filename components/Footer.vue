@@ -5,11 +5,19 @@
         <div class="items-wrap">
           <div class="title">PROJECT</div>
           <div class="items">
-            <div class="item"><span class="serif-text">花束</span>Floral bouquet</div>
-            <div class="item"><span class="serif-text">花圈</span>Wreath</div>
-            <div class="item"><span class="serif-text">花禮/花盒/盆花</span>Floral box</div>
-            <div class="item"><span class="serif-text">捧花/胸花</span>Bridal bouquet</div>
-            <div class="item"><span class="serif-text">婚禮佈置</span>Wedding decor</div>
+            <div class="item" @click="$router.push('/project/floral_bouquet')">
+              <span class="serif-text">花束</span>Floral bouquet
+            </div>
+            <div class="item" @click="$router.push('/project/wreath')"><span class="serif-text">花圈</span>Wreath</div>
+            <div class="item" @click="$router.push('/project/floral_box')">
+              <span class="serif-text">花禮/花盒/盆花</span>Floral box
+            </div>
+            <div class="item" @click="$router.push('/project/bridal_bouquet')">
+              <span class="serif-text">捧花/胸花</span>Bridal bouquet
+            </div>
+            <div class="item" @click="$router.push('/project/wedding_decor')">
+              <span class="serif-text">婚禮佈置</span>Wedding decor
+            </div>
           </div>
         </div>
         <div class="items-wrap project-item">
@@ -72,8 +80,13 @@ export default {
       margin-bottom: 23px;
       cursor: pointer;
 
+      &:hover {
+        color: $pink;
+      }
+
       &.mail {
         cursor: initial;
+        color: $grey3;
       }
 
       .serif-text {

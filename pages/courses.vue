@@ -56,13 +56,24 @@ export default {
       ],
     }
   },
-  // mounted() {
-  //   this.$ref.menuBtn
-  // },
+  transition: 'default',
 }
 </script>
 
 <style lang="scss" scoped>
+.default-enter-active,
+.default-leave-active {
+  transition: opacity 0.5s;
+}
+.default-enter,
+.default-leave-to {
+  opacity: 0;
+}
+.default-enter-to,
+.default-leave {
+  opacity: 1;
+}
+
 .courses {
   background-color: $white;
 }

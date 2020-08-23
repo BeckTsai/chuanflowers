@@ -9,7 +9,6 @@
           <img class="img-wrap" :src="require(`~/assets/image/home/banner_${num}.png`)" />
         </div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
     <Schedule />
     <Project />
@@ -44,13 +43,18 @@ export default {
           crossFade: true,
         },
       },
-      loadingShow: true,
     }
   },
+  computed: {
+    loadingShow() {
+      return this.$store.state.loadingShow
+    },
+  },
+  transition: 'default',
   mounted() {
     this.$nextTick(() => {
       setTimeout(() => {
-        this.loadingShow = false
+        this.$store.commit('SET_LOADING_SHOW', false)
       }, 2000)
     })
   },
@@ -58,6 +62,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.default-enter-active,
+.default-leave-active {
+  transition: opacity 0.5s;
+}
+.default-enter,
+.default-leave-to {
+  opacity: 0;
+}
+.default-enter-to,
+.default-leave {
+  opacity: 1;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

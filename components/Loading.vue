@@ -9,6 +9,16 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+@keyframes colorTransition {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .position-fixed {
   background-color: $white;
   width: 100vw;
@@ -24,5 +34,15 @@ export default {}
   font-size: 30px;
   writing-mode: vertical-rl;
   letter-spacing: 9px;
+  animation: colorTransition 0.75s 0.5;
+}
+
+@media screen and (max-width: $noteBook) {
+  .position-fixed {
+    padding-top: 26vh;
+  }
+  .text {
+    font-size: 24px;
+  }
 }
 </style>

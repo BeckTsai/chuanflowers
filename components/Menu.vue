@@ -182,14 +182,14 @@ export default {
   .left {
     padding: 97px 0 0 83px;
     .nav-wrap {
-      margin: 34% 0 36%;
+      margin: 72px 0 87px;
 
       .nav {
         font-size: 25px;
         letter-spacing: 2.5px;
 
         &:nth-child(2) {
-          margin: 10px 0;
+          margin: 10px 0 10px -10px;
         }
       }
     }

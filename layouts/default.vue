@@ -1,6 +1,5 @@
 <template>
   <div :class="[{ 'scroll-active': scrollActive }]">
-    <!-- <Menu :class="['menu', { 'menu-show': !btnStatus }]" /> -->
     <transition name="fade">
       <Menu v-show="btnStatus" class="menu" @changeRoute="changeRoute" />
     </transition>
@@ -9,7 +8,11 @@
       <img src="~/assets/image/home/logo.png" alt="chuanflowers" />
     </div>
     <div
-      :class="['menu-btn', { 'menu-active': btnStatus }, { 'other-page': $route.path !== '/' }]"
+      :class="[
+        'menu-btn',
+        { 'menu-active': btnStatus },
+        { 'other-page': $route.path !== '/' && $route.path !== '/project' },
+      ]"
       @click="btnStatus = !btnStatus"
     >
       <div class="menu-line" />
