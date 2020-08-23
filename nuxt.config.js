@@ -11,14 +11,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/a1beh-bcmb0-001.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap' },
     ],
-  },
-  server: {
-    port: 4000, // default: 3000
   },
   telemetry: false,
   bootstrapVue: {
