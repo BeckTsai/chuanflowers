@@ -60,5 +60,6 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}, // eslint-disable-line
+    babel: { compact: true },
   },
 }
