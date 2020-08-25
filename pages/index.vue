@@ -52,8 +52,10 @@ export default {
   },
   transition: 'default',
   mounted() {
-    window.addEventListener('load', () => {
-      this.$store.commit('SET_LOADING_SHOW', false)
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.$store.commit('SET_LOADING_SHOW', false)
+      }, 2000)
     })
   },
 }
