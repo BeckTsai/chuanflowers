@@ -78,6 +78,7 @@ export default {
 
     .item {
       margin-bottom: 23px;
+      transition: 0.3s;
       cursor: pointer;
 
       &:hover {
@@ -143,6 +144,7 @@ export default {
   }
 
   .subtitle {
+    margin-top: 20px;
     font-size: 19px;
   }
 

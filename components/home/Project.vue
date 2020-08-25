@@ -58,7 +58,7 @@ export default {}
 }
 
 .title {
-  margin-top: 8rem;
+  margin-top: 6rem;
   color: $pink;
   font-size: 35px;
   letter-spacing: 7px;
@@ -114,6 +114,7 @@ export default {}
     text-align: right;
 
     .serif-text {
+      margin-right: 5px;
       font-size: 16px;
     }
   }
@@ -137,7 +138,7 @@ export default {}
 
   .item-wrap:nth-child(4) {
     right: 15.5vw;
-    top: 70.5vw;
+    top: 66.5vw;
     width: 26.5vw;
   }
 

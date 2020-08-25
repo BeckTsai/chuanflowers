@@ -357,5 +357,16 @@ export default {
       height: 400px;
     }
   }
+
+  .works-wrap {
+    width: 897px;
+  }
+
+  .img-wrap {
+    width: 267px;
+    height: 150px;
+    margin-right: 48px;
+    margin-bottom: 71px;
+  }
 }
 </style>

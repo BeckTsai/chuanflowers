@@ -59,7 +59,7 @@ export default {}
 }
 
 .title {
-  top: 84px;
+  top: 89px;
   left: 126px;
   padding-left: 26px;
   background-color: $pink;
@@ -80,5 +80,24 @@ export default {}
   bottom: 34px;
   right: 79px;
   font-size: 13px;
+}
+
+@media screen and (max-width: $noteBook) {
+  .about-wrap {
+    top: 48px;
+  }
+
+  .title {
+    top: 54px;
+    left: 70px;
+  }
+
+  .content {
+    margin-top: 18%;
+  }
+
+  .text {
+    right: 21px;
+  }
 }
 </style>

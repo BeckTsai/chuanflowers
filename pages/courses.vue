@@ -166,4 +166,10 @@ export default {
     text-align: center;
   }
 }
+
+@media screen and (max-width: $noteBook) {
+  .courses-container {
+    width: 897px;
+  }
+}
 </style>

@@ -58,5 +58,16 @@ module.exports = {
      */
     extend(config, ctx) {}, // eslint-disable-line
     babel: { compact: true },
+    'html.minify': {
+      collapseBooleanAttributes: true,
+      decodeEntities: true,
+      minifyCSS: true,
+      minifyJS: true,
+      processConditionalComments: true,
+      removeEmptyAttributes: true,
+      removeRedundantAttributes: true,
+      trimCustomFragments: true,
+      useShortDoctype: true,
+    },
   },
 }

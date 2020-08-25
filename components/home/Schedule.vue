@@ -155,4 +155,40 @@ export default {}
     transition: 0.4s;
   }
 }
+
+@media screen and (max-width: $noteBook) {
+  .schedule-title {
+    font-size: 25px;
+    top: 34px;
+  }
+
+  .text {
+    top: 46px;
+    left: -18px;
+    padding-left: 15px;
+    font-size: 16px;
+  }
+
+  .content-wrap {
+    padding-top: 14%;
+  }
+
+  .content-top {
+    .inner-title {
+      font-size: 15px;
+      letter-spacing: 1.5px;
+    }
+
+    .inner-text {
+      letter-spacing: 2.4px;
+      line-height: 30px;
+    }
+  }
+
+  .btn-wrap {
+    .btn-line {
+      margin-top: 5px;
+    }
+  }
+}
 </style>

@@ -155,7 +155,7 @@ body {
   position: fixed;
   width: 41px;
   height: 10px;
-  top: 52px;
+  top: 42px;
   right: 83px;
   z-index: 10;
   color: $white;
@@ -166,7 +166,7 @@ body {
   position: absolute;
   top: 100%;
   width: 100%;
-  border: 1px solid #c9c9c9;
+  border: 1px solid $white;
   transition: transform 0.4s, top 0.4s 0.4s, background-color 0.5s;
 
   &:first-child {

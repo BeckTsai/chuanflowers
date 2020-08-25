@@ -117,4 +117,21 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: $noteBook) {
+  .project-wrap {
+    padding-top: 130px;
+    padding-right: 77px;
+  }
+
+  .left {
+    .list {
+      width: initial;
+    }
+  }
+
+  .right {
+    width: 215px;
+  }
+}
 </style>
