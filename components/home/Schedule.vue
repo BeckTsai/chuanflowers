@@ -62,6 +62,10 @@ export default {}
     display: inline-block;
     vertical-align: middle;
   }
+
+  .text {
+    display: none;
+  }
 }
 
 .line {
@@ -164,7 +168,7 @@ export default {}
   .content-wrap {
     padding-top: 14%;
     .text {
-      top: 46px;
+      top: 41px;
       left: -18px;
       padding-left: 15px;
       font-size: 16px;

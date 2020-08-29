@@ -191,6 +191,10 @@ export default {
   }
 }
 
+.slider {
+  display: none;
+}
+
 @media screen and (max-width: $mobile) {
   .project-wrap {
     height: initial;
@@ -209,6 +213,10 @@ export default {
 
   .items-wrap {
     display: none;
+  }
+
+  .slider {
+    display: block;
   }
 
   .item {

@@ -99,9 +99,11 @@ export default {}
     top: 48px;
   }
 
-  .title {
-    top: 54px;
-    left: 70px;
+  .right {
+    .title {
+      top: 54px;
+      left: 70px;
+    }
   }
 
   .content {
