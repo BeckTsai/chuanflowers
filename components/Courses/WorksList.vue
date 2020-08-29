@@ -43,7 +43,7 @@ export default {
         },
         {
           name: 'wedding_decor',
-          img: require('@/assets/image/courses/Wedding_decor .png'),
+          img: require('@/assets/image/courses/Wedding_decor.png'),
           zhText: '婚禮佈置',
           enText: 'Wedding decor',
         },

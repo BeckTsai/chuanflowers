@@ -44,11 +44,53 @@
         <div class="list">05</div>
       </div>
     </div>
+    <div id="slider" v-swiper="swiperOption" class="slider">
+      <div class="swiper-wrapper">
+        <div v-for="(item, idx) in imgList" :key="idx" class="swiper-slide">
+          <div class="item">
+            <div class="num">{{ `0${idx + 1}` }}</div>
+            <img v-lazy="require(`~/assets/image/home/m_${idx + 1}.png`)" class="img-wrap" />
+            <div class="item-text">
+              <span class="serif-text">{{ item.zhText }} </span>{{ item.enText }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    swiperOption: {
+      speed: 1000,
+    },
+    imgList: [
+      {
+        name: 'floral_bouquet',
+        zhText: '花束',
+        enText: 'Floral bouquet',
+      },
+      { name: 'wreath', zhText: '花圈', enText: 'Wreath' },
+      {
+        name: 'floral_box',
+        zhText: '花禮/花盒/盆花',
+        enText: 'Floral box',
+      },
+      {
+        name: 'bridal_bouquet',
+        zhText: '捧花/胸花',
+        enText: 'Bridal bouquet',
+      },
+      {
+        name: 'wedding_decor',
+        zhText: '婚禮佈置',
+        enText: 'Wedding decor',
+      },
+    ],
+  }),
+}
 </script>
 
 <style lang="scss" scoped>
@@ -146,6 +188,48 @@ export default {}
     left: 19.5vw;
     top: 107vw;
     width: 48vw;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .project-wrap {
+    height: initial;
+    padding-bottom: 69px;
+  }
+  .title {
+    margin-top: 46px;
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+
+  .subtitle {
+    margin-bottom: 70px;
+    font-size: 12px;
+  }
+
+  .items-wrap {
+    display: none;
+  }
+
+  .item {
+    position: relative;
+    width: 307px;
+    height: 292px;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+
+  .num {
+    position: absolute;
+    top: -2px;
+    left: 15px;
+    color: #000;
+    font-size: 30px;
+  }
+
+  .item-text {
+    color: $grey3;
+    font-size: 14px;
   }
 }
 </style>

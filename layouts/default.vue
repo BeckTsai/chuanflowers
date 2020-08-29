@@ -231,4 +231,26 @@ body {
     color: #000;
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .logo {
+    top: 16px;
+    left: 22px;
+    width: 68px;
+  }
+
+  .menu-btn {
+    top: 20px;
+    right: 17px;
+    width: 31px;
+  }
+
+  .menu-text {
+    font-size: 12px;
+  }
+
+  .cover-bg {
+    height: 56px;
+  }
+}
 </style>

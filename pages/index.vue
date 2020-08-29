@@ -87,4 +87,17 @@ export default {
 .img-wrap {
   width: 100%;
 }
+
+@media screen and (max-width: $mobile) {
+  .swiper-slide {
+    height: 618px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: initial;
+      height: 100%;
+    }
+  }
+}
 </style>

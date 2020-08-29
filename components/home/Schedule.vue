@@ -5,6 +5,7 @@
         <div class="schedule-title">
           <span class="title">COURSES</span>
           <span class="line" />
+          <span class="text serif-text">檔期活動</span>
         </div>
         <div class="img-wrap">
           <img src="~/assets/image/home/courses-banner.png" />
@@ -14,8 +15,7 @@
           <div class="content-top serif-text">
             <div class="inner-title">畢業花束預購開放</div>
             <div class="inner-text">
-              小時候最討厭大人說當學生很幸福，長大卻不斷不斷地回 憶那段當學生的日子。畢業只有一次，選一束花給陪你度
-              過青春的朋友吧！
+              小時候最討厭大人說當學生很幸福，長大卻不斷不斷地回憶那段當學生的日子。畢業只有一次，選一束花給陪你度過青春的朋友吧！
             </div>
           </div>
           <div class="btn-wrap">
@@ -85,18 +85,17 @@ export default {}
   position: relative;
   width: 32%;
   margin-left: 8%;
-  padding-top: 16%;
-}
 
-.text {
-  position: absolute;
-  padding-left: 2px;
-  top: 67px;
-  left: -9px;
-  font-size: 22px;
-  letter-spacing: 2.2px;
-  vertical-align: middle;
-  background-color: $grey7;
+  .text {
+    position: absolute;
+    padding-left: 2px;
+    top: 67px;
+    left: -9px;
+    font-size: 22px;
+    letter-spacing: 2.2px;
+    vertical-align: middle;
+    background-color: $grey7;
+  }
 }
 
 .content-top {
@@ -162,15 +161,14 @@ export default {}
     top: 34px;
   }
 
-  .text {
-    top: 46px;
-    left: -18px;
-    padding-left: 15px;
-    font-size: 16px;
-  }
-
   .content-wrap {
     padding-top: 14%;
+    .text {
+      top: 46px;
+      left: -18px;
+      padding-left: 15px;
+      font-size: 16px;
+    }
   }
 
   .content-top {
@@ -188,6 +186,75 @@ export default {}
   .btn-wrap {
     .btn-line {
       margin-top: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .schedule-contain {
+    padding: 32% 18px 7%;
+  }
+
+  .schedule-content {
+    display: block;
+  }
+
+  .schedule-title {
+    position: static;
+    width: initial;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+
+    .text {
+      font-size: 14px;
+      letter-spacing: 2.2px;
+      vertical-align: middle;
+      background-color: $grey7;
+    }
+  }
+
+  .line {
+    width: 66px;
+  }
+
+  .img-wrap {
+    width: 100%;
+  }
+
+  .content-wrap {
+    margin-left: 0;
+    padding-top: 28px;
+    width: 100%;
+
+    .text {
+      display: none;
+    }
+  }
+
+  .content-top {
+    font-size: 12px;
+
+    .inner-title {
+      margin-bottom: 11px;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+    }
+
+    .inner-text {
+      width: initial;
+      letter-spacing: 2.4px;
+      line-height: 30px;
+    }
+  }
+
+  .btn-wrap {
+    font-size: 15px;
+    margin-right: 0;
+    text-align: left;
+
+    .btn-text-wrap {
+      width: initial;
     }
   }
 }

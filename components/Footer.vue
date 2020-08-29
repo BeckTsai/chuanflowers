@@ -1,7 +1,7 @@
 <template>
   <div class="container-wrap">
     <div class="left position-relative">
-      <div class="items-list d-flex">
+      <div class="items-list d-xl-flex">
         <div class="items-wrap">
           <div class="title">PROJECT</div>
           <div class="items">
@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="copy-right position-absolute">Copyright © CHUAN FLOWERS. All rights reserved.</div>
+      <div class="copy-right">Copyright © CHUAN FLOWERS. All rights reserved.</div>
     </div>
     <div class="right">
       <div class="title">CHUAN FLOWERS</div>
@@ -126,6 +126,7 @@ export default {
   }
 
   .copy-right {
+    position: absolute;
     bottom: 0;
     left: 0;
     color: $pink;
@@ -160,6 +161,87 @@ export default {
   .en-address {
     margin-top: 22px;
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .container-wrap {
+    flex-direction: column-reverse;
+    padding: 40px 18px 0 16px;
+  }
+
+  .right {
+    width: initial;
+    padding-left: 0;
+    padding-bottom: 71px;
+    padding-right: 86px;
+    border-left: none;
+    border-bottom: 1px solid $grey6;
+
+    .title {
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      letter-spacing: 1.5px;
+      font-size: 15px;
+    }
+
+    .area-number {
+      margin-top: 30px;
+      font-size: 13px;
+    }
+
+    .address {
+      font-size: 13px;
+    }
+
+    .en-address {
+      margin-top: 22px;
+      font-size: 12px;
+    }
+  }
+
+  .left {
+    padding-top: 71px;
+    width: initial;
+
+    .title {
+      font-size: 18px;
+      margin-bottom: 19px;
+    }
+
+    .items-wrap {
+      .item {
+        margin-bottom: 19px;
+        font-size: 13px;
+
+        &:last-child {
+          margin-bottom: 41px;
+        }
+
+        &.mail {
+          margin-top: 15px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .project-item {
+      .item {
+        width: 125px;
+        font-size: 15px;
+        padding-bottom: 7px;
+      }
+    }
+    .copy-right {
+      position: static;
+      margin-top: 96px;
+      margin-bottom: 19px;
+      font-size: 12px;
+    }
   }
 }
 </style>
