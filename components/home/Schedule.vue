@@ -211,6 +211,7 @@ export default {}
     text-align: center;
 
     .text {
+      display: inline-block;
       font-size: 14px;
       letter-spacing: 2.2px;
       vertical-align: middle;

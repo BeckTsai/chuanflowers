@@ -225,6 +225,10 @@ export default {
     height: 292px;
     margin: 0 auto;
     padding-top: 20px;
+
+    img {
+      width: 100%;
+    }
   }
 
   .num {
