@@ -39,7 +39,7 @@ export default {}
 
 @media screen and (max-width: $noteBook) {
   .position-fixed {
-    padding-top: 26vh;
+    padding-top: 20vh;
   }
   .text {
     font-size: 24px;

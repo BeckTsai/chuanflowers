@@ -64,6 +64,7 @@
 export default {
   data: () => ({
     swiperOption: {
+      width: 330,
       speed: 1000,
     },
     imgList: [
@@ -219,12 +220,18 @@ export default {
     display: block;
   }
 
+  .swiper-pagination {
+    bottom: 0px;
+    left: 117px;
+  }
+
   .item {
     position: relative;
-    width: 307px;
+    width: 100%;
     height: 292px;
     margin: 0 auto;
     padding-top: 20px;
+    padding-left: 20px;
 
     img {
       width: 100%;
@@ -234,7 +241,7 @@ export default {
   .num {
     position: absolute;
     top: -2px;
-    left: 15px;
+    left: 35px;
     color: #000;
     font-size: 30px;
   }

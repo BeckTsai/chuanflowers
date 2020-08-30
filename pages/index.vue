@@ -5,8 +5,8 @@
     </transition>
     <div id="slider" v-swiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="num in 3" :key="num" class="swiper-slide">
-          <img class="img-wrap" :src="require(`~/assets/image/home/banner_${num}.png`)" />
+        <div v-for="(img, index) in resultImg" :key="index" class="swiper-slide">
+          <img class="img-wrap" :src="img" />
         </div>
       </div>
     </div>
@@ -43,16 +43,32 @@ export default {
           crossFade: true,
         },
       },
+      windowWidth: null,
     }
   },
   computed: {
     loadingShow() {
       return this.$store.state.loadingShow
     },
+    resultImg() {
+      if (this.windowWidth && this.windowWidth < 780) {
+        return [
+          require('~/assets/image/home/banner_m_1.png'),
+          require('~/assets/image/home/banner_m_2.png'),
+          require('~/assets/image/home/banner_m_3.png'),
+        ]
+      }
+      return [
+        require('~/assets/image/home/banner_1.png'),
+        require('~/assets/image/home/banner_2.png'),
+        require('~/assets/image/home/banner_3.png'),
+      ]
+    },
   },
   transition: 'default',
   mounted() {
     this.$nextTick(() => {
+      this.windowWidth = window.outerHeight
       setTimeout(() => {
         this.$store.commit('SET_LOADING_SHOW', false)
       }, 2000)

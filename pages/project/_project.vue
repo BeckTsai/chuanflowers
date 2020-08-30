@@ -277,7 +277,7 @@ export default {
 }
 
 .works-wrap {
-  width: 1043px;
+  width: 1150px;
   margin: 0 auto;
   text-align: center;
 }
