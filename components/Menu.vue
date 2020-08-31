@@ -227,7 +227,7 @@ export default {
     padding: 25px 0 0 19px;
 
     .nav-wrap {
-      margin: 54px 0 80px;
+      margin: 54px 0 70px;
     }
 
     .item-wrap {
