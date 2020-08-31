@@ -220,11 +220,6 @@ export default {
     display: block;
   }
 
-  .swiper-pagination {
-    bottom: 0px;
-    left: 117px;
-  }
-
   .item {
     position: relative;
     width: 100%;

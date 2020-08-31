@@ -71,6 +71,11 @@ export default {
       popupStatus: false,
       swiperOption: {
         speed: 1000,
+        breakpoints: {
+          375: { width: 375 },
+          768: { width: 768 },
+          1280: { width: 1100 },
+        },
         navigation: {
           prevEl: '.swiper-button-prev',
           nextEl: '.swiper-button-next',
@@ -367,6 +372,92 @@ export default {
     height: 150px;
     margin-right: 48px;
     margin-bottom: 71px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .swiper-top {
+    margin-top: 167px;
+    .swiper-slide {
+      height: 211px;
+    }
+  }
+
+  .swiper-thumbs {
+    margin-top: 130px;
+    padding: 0 17px;
+
+    .swiper-slide {
+      width: 100px !important;
+      height: 56px;
+      margin-right: 19px;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 17px;
+  }
+
+  .swiper-button-next {
+    right: 17px;
+  }
+
+  .works {
+    padding: 88px 0 51px;
+    background-color: $white;
+  }
+
+  .title {
+    font-size: 13px;
+
+    &.serif-text {
+      margin-bottom: 54px;
+    }
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .works-wrap {
+    width: 339px;
+  }
+
+  .img-wrap {
+    position: relative;
+    width: 158px;
+    height: 90px;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-bottom: 23px;
+    cursor: pointer;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &:nth-child(3n) {
+      margin-right: auto;
+    }
+  }
+
+  .works-title {
+    margin-bottom: 41px;
+  }
+
+  .list-wrap {
+    margin-left: -20px;
+  }
+  .head {
+    margin: 15px 17px;
+
+    .title {
+      font-size: 13px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+    }
   }
 }
 </style>

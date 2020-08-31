@@ -68,7 +68,7 @@ export default {
   transition: 'default',
   mounted() {
     this.$nextTick(() => {
-      this.windowWidth = window.outerHeight
+      this.windowWidth = window.outerWidth
       setTimeout(() => {
         this.$store.commit('SET_LOADING_SHOW', false)
       }, 2000)

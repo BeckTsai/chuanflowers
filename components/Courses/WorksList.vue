@@ -8,6 +8,18 @@
       </p>
       <div class="mask" />
     </div>
+    <div id="slider" v-swiper="swiperOption" class="slider">
+      <div class="swiper-wrapper">
+        <div v-for="(item, idx) in resultList" :key="`img-${idx}`" class="swiper-slide">
+          <div class="item" @click="$router.push(`/project/${item.name}`)">
+            <img v-lazy="item.img" class="img" />
+            <div class="item-text">
+              <span class="serif-text">{{ item.zhText }} </span>{{ item.enText }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +33,10 @@ export default {
   },
   data() {
     return {
+      swiperOption: {
+        width: 307,
+        speed: 1000,
+      },
       imgList: [
         {
           name: 'floral_bouquet',
@@ -103,10 +119,40 @@ export default {
   }
 }
 
+#slider {
+  display: none;
+}
+
 @media screen and (max-width: $noteBook) {
   .img-wrap {
     width: 267px;
     margin-right: 48px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .list-wrap {
+    display: block;
+  }
+  .img-wrap {
+    display: none;
+  }
+
+  #slider {
+    display: block;
+  }
+
+  .item {
+    position: relative;
+    width: 100%;
+    height: 292px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-left: 20px;
 
     img {
       width: 100%;

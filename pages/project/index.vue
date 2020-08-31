@@ -2,8 +2,8 @@
   <div>
     <div id="slider" v-swiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="num in 3" :key="num" class="swiper-slide">
-          <img class="img-wrap" :src="require(`~/assets/image/project/banner_${num}.png`)" />
+        <div v-for="(img, index) in resultImg" :key="index" class="swiper-slide">
+          <img :src="img" class="img-wrap" />
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -47,7 +47,30 @@ export default {
           crossFade: true,
         },
       },
+      windowWidth: null,
     }
+  },
+  computed: {
+    resultImg() {
+      if (this.windowWidth && this.windowWidth < 780) {
+        return [
+          require('~/assets/image/project/banner_m_1.png'),
+          require('~/assets/image/project/banner_m_2.png'),
+          require('~/assets/image/project/banner_m_3.png'),
+        ]
+      }
+      return [
+        require('~/assets/image/project/banner_1.png'),
+        require('~/assets/image/project/banner_2.png'),
+        require('~/assets/image/project/banner_3.png'),
+      ]
+    },
+  },
+  mounted() {
+    console.log(window.outerWidth)
+    this.$nextTick(() => {
+      this.windowWidth = window.outerWidth
+    })
   },
 }
 </script>
@@ -132,6 +155,45 @@ export default {
 
   .right {
     width: 215px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .project-wrap {
+    display: block;
+    padding: 93px 0 0 17px;
+  }
+
+  .list {
+    margin-left: -19px;
+  }
+
+  .left {
+    .title {
+      font-size: 18px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+    }
+
+    .works-title {
+      font-size: 12px;
+    }
+  }
+
+  .right {
+    width: initial;
+    margin-top: 0;
+    margin-bottom: 60px;
+
+    .item {
+      font-size: 15px;
+
+      &:last-child {
+        margin-top: 15px;
+      }
+    }
   }
 }
 </style>

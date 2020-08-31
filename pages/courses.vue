@@ -172,4 +172,27 @@ export default {
     width: 897px;
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .courses-container {
+    width: 339px;
+    padding-top: 88px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .data {
+    font-size: 13px;
+  }
+
+  .text {
+    font-size: 12px;
+  }
+}
 </style>

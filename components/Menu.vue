@@ -217,4 +217,30 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .right {
+    display: none;
+  }
+
+  .left {
+    padding: 25px 0 0 19px;
+
+    .nav-wrap {
+      margin-bottom: 201px;
+    }
+
+    .item-wrap {
+      .title {
+        font-size: 18px;
+      }
+
+      .items {
+        .item {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
 </style>
