@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="swiper-pagination"></div>
-      <div class="swiper-text serif-text">沒有一絲矯情，只有真實的情感。</div>
+      <!-- <div class="swiper-text serif-text">沒有一絲矯情，只有真實的情感。</div> -->
     </div>
     <div class="project-wrap">
       <div class="left">
@@ -56,15 +56,15 @@ export default {
 .img-wrap {
   width: 100%;
 }
-.swiper-text {
-  position: absolute;
-  top: 26%;
-  left: 50%;
-  font-size: 30px;
-  color: $white;
-  writing-mode: vertical-lr;
-  z-index: 1;
-}
+// .swiper-text {
+//   position: absolute;
+//   top: 26%;
+//   left: 50%;
+//   font-size: 30px;
+//   color: $white;
+//   writing-mode: vertical-lr;
+//   z-index: 1;
+// }
 
 .project-wrap {
   display: flex;
