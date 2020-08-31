@@ -377,14 +377,14 @@ export default {
 
 @media screen and (max-width: $mobile) {
   .swiper-top {
-    margin-top: 130px;
+    margin-top: 110px;
     .swiper-slide {
       height: 211px;
     }
   }
 
   .swiper-thumbs {
-    margin-top: 110px;
+    margin-top: 90px;
     padding: 0 17px;
 
     .swiper-slide {
