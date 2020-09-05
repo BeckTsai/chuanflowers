@@ -73,6 +73,7 @@ export default {
         speed: 1000,
         breakpoints: {
           375: { width: 375 },
+          414: { width: 414 },
           768: { width: 768 },
           1280: { width: 1100 },
         },
@@ -90,6 +91,11 @@ export default {
       },
       swiperOptionThumbs: {
         speed: 1000,
+        breakpoints: {
+          375: { width: 134 },
+          768: { width: 134 },
+          1280: { width: 141 },
+        },
       },
       list: [
         {
@@ -134,6 +140,9 @@ export default {
     },
     curIndex() {
       return this.$refs.swiperTop.activeIndex
+    },
+    realIndex() {
+      return this.$refs
     },
   },
   mounted() {
@@ -380,6 +389,9 @@ export default {
     margin-top: 110px;
     .swiper-slide {
       height: 211px;
+    }
+    .swiper-button-white {
+      top: 291px;
     }
   }
 

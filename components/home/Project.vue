@@ -46,7 +46,12 @@
     </div>
     <div id="slider" v-swiper="swiperOption" class="slider">
       <div class="swiper-wrapper">
-        <div v-for="(item, idx) in imgList" :key="idx" class="swiper-slide">
+        <div
+          v-for="(item, idx) in imgList"
+          :key="idx"
+          class="swiper-slide"
+          @click="$router.push(`/project/${item.name}`)"
+        >
           <div class="item">
             <div class="num">{{ `0${idx + 1}` }}</div>
             <img v-lazy="require(`~/assets/image/home/m_${idx + 1}.png`)" class="img-wrap" />
