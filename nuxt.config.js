@@ -40,7 +40,10 @@ module.exports = {
    ** Nuxt.js dev-modules
    */
   components: true,
-  buildModules: [],
+  buildModules: ['@aceforth/nuxt-optimized-images'],
+  optimizedImages: {
+    optimizeImages: true,
+  },
   /*
    ** Nuxt.js modules
    */
