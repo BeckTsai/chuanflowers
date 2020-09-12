@@ -26,18 +26,12 @@
 <script>
 import tplFooter from '@/components/Footer'
 import Menu from '@/components/Menu'
+import banner from '@/assets/image/project/banner_2.png'
 
 export default {
   components: {
     tplFooter,
     Menu,
-  },
-  provide() {
-    return {
-      clickBtn() {
-        this.btnStatus = !this.btnStatus
-      },
-    }
   },
   data() {
     return {
@@ -63,6 +57,24 @@ export default {
     changeRoute() {
       this.btnStatus = false
     },
+  },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.BASE_URL + banner,
+        },
+      ],
+    }
+  },
+  provide() {
+    return {
+      clickBtn() {
+        this.btnStatus = !this.btnStatus
+      },
+    }
   },
 }
 </script>
