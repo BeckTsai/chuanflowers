@@ -11,7 +11,10 @@ module.exports = {
       { hid: 'description', name: 'description', content: '花藝設計｜花束設計｜婚禮布置' },
       { property: 'og:title', content: '繾綣花藝工作室｜Chuanflowers' },
       { property: 'og:description', content: '花藝設計｜花束設計｜婚禮布置' },
-      { property: 'og:image', content: 'https://ibb.co/CzC77S7' },
+      {
+        property: 'og:image',
+        content: 'https://drive.google.com/file/d/1p4Yei2y33xp_NLwgYnMAuCOTszhZRd_D/view?usp=sharing',
+      },
       { property: 'og:url', content: 'http://www.chuanflowers.com' },
       { property: 'og:site_name', content: 'Chuanflowers' },
       { property: 'fb:admins', content: 'chuanflowers' },
