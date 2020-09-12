@@ -13,7 +13,7 @@ module.exports = {
       { property: 'og:description', content: '花藝設計｜花束設計｜婚禮布置' },
       {
         property: 'og:image',
-        content: 'https://drive.google.com/file/d/1p4Yei2y33xp_NLwgYnMAuCOTszhZRd_D/view?usp=sharing',
+        content: 'https://photos.app.goo.gl/LJpvDruLKm4ZBPXx5',
       },
       { property: 'og:url', content: 'http://www.chuanflowers.com' },
       { property: 'og:site_name', content: 'Chuanflowers' },
