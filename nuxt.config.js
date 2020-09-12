@@ -9,6 +9,11 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '花藝設計｜花束設計｜婚禮布置' },
+      { property: 'og:title', content: '繾綣花藝工作室｜Chuanflowers' },
+      { property: 'og:description', content: '花藝設計｜花束設計｜婚禮布置' },
+      { property: 'og:img', content: '@/assets/image/home/wreath.png' },
+      { property: 'og:url', content: 'http://www.chuanflowers.com' },
+      { property: 'og:site_name', content: 'CHUAN FLOWERS' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -16,6 +21,9 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap' },
     ],
+  },
+  server: {
+    port: 4000, // default: 3000
   },
   telemetry: false,
   bootstrapVue: {
