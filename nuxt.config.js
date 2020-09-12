@@ -22,9 +22,6 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap' },
     ],
   },
-  server: {
-    port: 4000, // default: 3000
-  },
   telemetry: false,
   bootstrapVue: {
     components: ['BIcon', 'BIconChevronRight', 'BIconX', 'BIconChevronCompactRight', 'BIconChevronCompactLeft'],
