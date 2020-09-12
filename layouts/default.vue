@@ -64,7 +64,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.BASE_URL + banner,
+          content: `http://www.chuanflowers.com/${banner}`,
         },
       ],
     }
