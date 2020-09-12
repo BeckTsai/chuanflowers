@@ -64,7 +64,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `http://www.chuanflowers.com/${banner}`,
+          content: `http://www.chuanflowers.com${banner}`,
         },
       ],
     }
