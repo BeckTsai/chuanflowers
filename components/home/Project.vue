@@ -131,14 +131,16 @@ export default {
     top: -36px;
     left: 14px;
     color: $grey1;
-    font-size: 50.45px;
+    font-size: 50px;
   }
 
   .img-wrap {
+    overflow: hidden;
     cursor: pointer;
 
     img {
       width: 100%;
+      transition: 0.7s;
     }
 
     .mask {
@@ -151,6 +153,10 @@ export default {
     }
 
     &:hover {
+      img {
+        transform: scale(1.1);
+      }
+
       .mask {
         background-color: rgba(255, 255, 255, 0.4);
       }
@@ -199,6 +205,29 @@ export default {
 
 .slider {
   display: none;
+}
+@media screen and (max-width: $noteBook) {
+  .title {
+    font-size: 25px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+  .items-wrap {
+    .item-text {
+      margin-top: 4px;
+      font-size: 15px;
+
+      .serif-text {
+        font-size: 15px;
+      }
+    }
+    .list {
+      top: -25px;
+      font-size: 35px;
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {

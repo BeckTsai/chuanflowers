@@ -3,17 +3,17 @@
     <div class="left">
       <div class="title">CATEGORY</div>
       <div class="nav-wrap">
-        <div class="nav" @click="changeRoute('/')">
+        <div class="nav" @click="changeRoute('/')" @mouseenter="current = 'pic2'" @mouseleave="current = 'pic1'">
           <span class="nav-line" />
           HOME
           <span class="serif-text">首頁</span>
         </div>
-        <div class="nav" @click="changeRoute('/courses')">
+        <div class="nav" @click="changeRoute('/courses')" @mouseenter="current = 'pic3'" @mouseleave="current = 'pic1'">
           <span class="nav-line" />
           COURSES
           <span class="serif-text">檔期活動</span>
         </div>
-        <div class="nav" @click="changeRoute('/project')">
+        <div class="nav" @click="changeRoute('/project')" @mouseenter="current = 'pic4'" @mouseleave="current = 'pic1'">
           <span class="nav-line" />
           PROJECT
           <span class="serif-text">花藝作品</span>
@@ -40,13 +40,29 @@
       </div>
     </div>
     <div class="right">
-      <img src="@/assets/image/menu/pic1.png" />
+      <transition name="fade">
+        <img v-show="current === 'pic1'" src="@/assets/image/menu/pic1.png" />
+      </transition>
+      <transition name="fade">
+        <img v-show="current === 'pic2'" src="@/assets/image/menu/pic2.png" />
+      </transition>
+      <transition name="fade">
+        <img v-show="current === 'pic3'" src="@/assets/image/menu/pic3.png" />
+      </transition>
+      <transition name="fade">
+        <img v-show="current === 'pic4'" src="@/assets/image/menu/pic4.png" />
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      current: 'pic1',
+    }
+  },
   methods: {
     clickHandler(url) {
       window.open(url)
@@ -60,6 +76,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active {
+  transition: opacity 0.3s;
+}
+
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .menu {
   display: flex;
   justify-content: space-between;
@@ -91,8 +120,7 @@ export default {
       cursor: pointer;
 
       &:nth-child(2) {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        padding: 10px 0;
       }
 
       .nav-line {
@@ -130,6 +158,7 @@ export default {
     margin-top: 41px;
     .title {
       font-size: 18px;
+      color: $grey1;
     }
 
     .items {
@@ -172,8 +201,12 @@ export default {
 }
 
 .right {
+  position: relative;
   width: 39%;
   img {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
   }
 }
@@ -185,8 +218,12 @@ export default {
       margin: 72px 0 87px;
 
       .nav {
-        font-size: 25px;
+        font-size: 35px;
         letter-spacing: 2.5px;
+
+        .serif-text {
+          font-size: 15px;
+        }
 
         &:nth-child(2) {
           margin: 10px 0 10px -10px;
@@ -198,8 +235,7 @@ export default {
       margin-bottom: 41px;
       .title {
         margin-bottom: 18px;
-        font-size: 22px;
-        color: $grey1;
+        font-size: 18px;
       }
 
       .items {
@@ -214,6 +250,13 @@ export default {
         width: 126px;
         font-size: 15px;
       }
+    }
+  }
+
+  .right {
+    img {
+      width: initial;
+      height: 100%;
     }
   }
 }

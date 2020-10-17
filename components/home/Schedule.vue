@@ -18,12 +18,12 @@
               小時候最討厭大人說當學生很幸福，長大卻不斷不斷地回憶那段當學生的日子。畢業只有一次，選一束花給陪你度過青春的朋友吧！
             </div>
           </div>
-          <div class="btn-wrap">
-            <div class="btn-text-wrap" @click="$router.push('courses')">
-              <span class="btn-text">Read More</span>
-              <b-icon icon="chevron-right" class="arrow-right" />
-              <div class="btn-line" />
-            </div>
+        </div>
+        <div class="btn-wrap">
+          <div class="btn-text-wrap" @click="$router.push('courses')">
+            <span class="btn-text">Read More</span>
+            <b-icon icon="chevron-right" class="arrow-right" />
+            <div class="btn-line" />
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default {}
 .schedule-title {
   position: absolute;
   width: 100%;
-  top: 57px;
+  top: 40px;
   left: 60px;
   font-size: 35px;
   letter-spacing: 7px;
@@ -86,6 +86,9 @@ export default {}
 }
 
 .content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   width: 32%;
   margin-left: 8%;
@@ -93,7 +96,7 @@ export default {}
   .text {
     position: absolute;
     padding-left: 2px;
-    top: 67px;
+    top: 49px;
     left: -9px;
     font-size: 22px;
     letter-spacing: 2.2px;
@@ -120,8 +123,9 @@ export default {}
 }
 
 .btn-wrap {
-  margin-top: 22%;
-  margin-right: -100px;
+  position: absolute;
+  bottom: 40px;
+  right: 0;
   font-size: 18px;
   text-align: right;
   cursor: pointer;
@@ -150,7 +154,7 @@ export default {}
 
   .btn-line {
     height: 1px;
-    background-color: #000;
+    background-color: $grey3;
     transition: 0.4s;
   }
 
@@ -166,7 +170,6 @@ export default {}
   }
 
   .content-wrap {
-    padding-top: 14%;
     .text {
       top: 41px;
       left: -18px;
@@ -188,8 +191,17 @@ export default {}
   }
 
   .btn-wrap {
+    font-size: 16px;
     .btn-line {
       margin-top: 5px;
+    }
+
+    .btn-text-wrap {
+      width: 135px;
+    }
+
+    .btn-text {
+      margin-right: 28px;
     }
   }
 }
@@ -254,8 +266,9 @@ export default {}
   }
 
   .btn-wrap {
+    position: static;
     font-size: 15px;
-    margin-right: 0;
+    margin: 66px 0 15px;
     text-align: left;
 
     .btn-text-wrap {

@@ -141,9 +141,33 @@ body {
   }
 }
 
+@keyframes scrollFadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .logo {
-  position: fixed;
-  top: 38px;
+  position: absolute;
+  top: 33px;
   left: 96px;
   width: 118px;
   z-index: 3;
@@ -164,7 +188,7 @@ body {
 }
 
 .menu-btn {
-  position: fixed;
+  position: absolute;
   width: 41px;
   height: 10px;
   top: 42px;
@@ -190,7 +214,7 @@ body {
 .menu-text {
   position: absolute;
   top: 100%;
-  animation: fadeInDown 0.4s;
+  animation: scrollFadeUp 0.4s;
 }
 
 .other-page.menu-btn {
@@ -205,8 +229,8 @@ body {
   .menu-line {
     top: 50%;
     transform: rotate(45deg);
-    transition: top 0.4s, transform 0.4s 0.4s;
     border-color: #000;
+    transition: top 0.4s, transform 0.4s 0.4s, border-color 0.4s 0.4s;
 
     &:first-child {
       transform: rotate(-45deg);
@@ -216,14 +240,14 @@ body {
   .menu-text {
     opacity: 0;
     transition: opacity 0.4s;
-    animation: fadeOutRight 0.4s;
+    animation: fadeOutDown 0.4s;
   }
 }
 
 .cover-bg {
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 80px;
   background-color: #fff;
   transform: translate3d(0, -100%, 0);
   transition: 0.4s;
@@ -242,19 +266,59 @@ body {
   .menu-text {
     color: #000;
   }
+
+  .menu-btn,
+  .logo {
+    position: fixed;
+    animation: scrollDown 1s;
+  }
+
+  .menu-btn {
+    top: 27px;
+  }
+
+  .logo {
+    width: 100px;
+    top: 23px;
+  }
+}
+
+@media screen and (max-width: $noteBook) {
+  .menu-btn {
+    width: 35px;
+    top: 27px;
+  }
+  .menu-text {
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 100px;
+    top: 23px;
+  }
 }
 
 @media screen and (max-width: $mobile) {
   .logo {
     top: 16px;
     left: 22px;
-    width: 68px;
+    width: 80px;
+  }
+
+  .scroll-active .logo {
+    top: 15px;
+
+    width: 80px;
   }
 
   .menu-btn {
-    top: 20px;
+    top: 18px;
     right: 17px;
     width: 31px;
+  }
+
+  .scroll-active .menu-btn {
+    top: 18px;
   }
 
   .menu-text {

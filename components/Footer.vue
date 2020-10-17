@@ -164,6 +164,39 @@ export default {
   }
 }
 
+@media screen and (max-width: $noteBook) {
+  .left {
+    .title {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .items-wrap {
+      .item {
+        margin-bottom: 10px;
+        font-size: 13px;
+      }
+    }
+
+    .copy-right {
+      font-size: 13px;
+    }
+  }
+
+  .right {
+    padding-bottom: 162px;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 15px;
+    }
+  }
+}
+
 @media screen and (max-width: $mobile) {
   .container-wrap {
     flex-direction: column-reverse;

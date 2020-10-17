@@ -26,11 +26,12 @@ export default {}
   top: 0;
   left: 0;
   z-index: 11;
-  padding-top: 300px;
 }
 
 .text {
-  margin: 0 auto;
+  position: absolute;
+  top: calc(50% - 226px);
+  left: calc(50% - 26px);
   font-size: 30px;
   writing-mode: vertical-rl;
   letter-spacing: 9px;
@@ -38,11 +39,15 @@ export default {}
 }
 
 @media screen and (max-width: $noteBook) {
-  .position-fixed {
-    padding-top: 20vh;
-  }
   .text {
-    font-size: 24px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .text {
+    top: calc(50% - 239px);
+    left: calc(50% - 19px);
   }
 }
 </style>

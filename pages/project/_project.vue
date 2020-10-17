@@ -366,6 +366,17 @@ export default {
 }
 
 @media screen and (max-width: $noteBook) {
+  .title {
+    font-size: 15px;
+  }
+  .subtitle {
+    font-size: 25px;
+  }
+
+  .date {
+    font-size: 15px;
+  }
+
   .swiper-top {
     .swiper-slide {
       height: 400px;
@@ -381,6 +392,16 @@ export default {
     height: 150px;
     margin-right: 48px;
     margin-bottom: 71px;
+  }
+
+  .head {
+    margin-bottom: 3%;
+    .subtitle {
+      font-size: 20px;
+    }
+    .title {
+      font-size: 13px;
+    }
   }
 }
 

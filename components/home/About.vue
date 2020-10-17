@@ -16,7 +16,10 @@
         <span class="serif-text">繾綣 </span>
         Chuan
       </div>
-      <div class="content serif-text">花能夠訴說所有沒能說出口的話語，傳達所有不該被時間拘束的情感</div>
+      <div class="content serif-text">
+        <span>花能夠訴說所有沒能說出口的話語，</span>
+        <span>傳達所有不該被時間拘束的情感。</span>
+      </div>
       <div class="text serif-text">工作室採預約制服務，請先訊息/電話預約</div>
     </div>
   </div>
@@ -31,7 +34,7 @@ export default {}
   display: flex;
   position: absolute;
   align-items: center;
-  top: 81px;
+  top: 60px;
   left: 207px;
   width: 60%;
 
@@ -65,11 +68,15 @@ export default {}
 }
 
 .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-color: $pink;
   color: $white;
 
   .title {
-    top: 89px;
+    top: 66px;
     left: 126px;
     padding-left: 26px;
     background-color: $pink;
@@ -82,9 +89,17 @@ export default {}
 .content {
   writing-mode: vertical-rl;
   color: $white;
-  margin: 28% auto 0;
-  height: 477px;
+  height: 608px;
+  font-size: 25px;
   letter-spacing: 13px;
+
+  span {
+    display: inline-block;
+  }
+
+  span:first-child {
+    margin-left: 14px;
+  }
 }
 
 .text {
@@ -96,18 +111,25 @@ export default {}
 
 @media screen and (max-width: $noteBook) {
   .about-wrap {
-    top: 48px;
+    top: 50px;
+  }
+
+  .about-title {
+    font-size: 25px;
   }
 
   .right {
     .title {
+      font-size: 16px;
       top: 54px;
       left: 70px;
     }
   }
 
   .content {
-    margin-top: 18%;
+    height: 416px;
+    font-size: 18px;
+    letter-spacing: 8px;
   }
 
   .text {

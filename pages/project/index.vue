@@ -9,9 +9,13 @@
       <div class="swiper-pagination"></div>
       <!-- <div class="swiper-text serif-text">沒有一絲矯情，只有真實的情感。</div> -->
     </div>
+    <div class="scroll-wrap">
+      <div class="scroll-indocator" />
+      <div class="scroll-text">Scroll Down</div>
+    </div>
     <div class="project-wrap">
       <div class="left">
-        <div class="title">PROJECT</div>
+        <div class="title"><span class="serif-text">花藝作品</span></div>
         <div class="subtitle serif-text">工作室採預約制服務，請先訊息/電話預約</div>
         <div class="works-title">SELECTED WORKS</div>
         <WorksList class="list" />
@@ -19,7 +23,7 @@
       <div class="right">
         <div class="title">CATEGORY</div>
         <div class="item"><span class="serif-text">花藝作品</span>Flowers</div>
-        <div class="item" @click="$router.push('/courses')"><span class="serif-text">檔期活動</span>Courses</div>
+        <!-- <div class="item" @click="$router.push('/courses')"><span class="serif-text">課程紀錄</span>Courses</div> -->
       </div>
     </div>
   </div>
@@ -76,6 +80,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes ScrollnavigateAnimation {
+  0% {
+    height: 0;
+  }
+
+  45% {
+    height: 100%;
+  }
+
+  55% {
+    height: 100%;
+    top: 0;
+  }
+
+  100% {
+    height: 0;
+    top: 100%;
+  }
+}
+
 .img-wrap {
   width: 100%;
 }
@@ -93,6 +117,53 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 297px 171px 107px 96px;
+}
+
+.scroll-wrap {
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  bottom: 40px;
+  text-align: center;
+
+  .scroll-text {
+    position: absolute;
+    left: calc(50% - 43px);
+    bottom: -24px;
+    color: #000;
+    z-index: 1;
+    font-size: 15px;
+  }
+}
+
+.scroll-indocator {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 1px;
+  height: 90px;
+  color: #fff;
+  z-index: 1;
+  background-color: #797878;
+
+  &::before,
+  &::after {
+    width: 1px;
+    height: 90px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: auto;
+    content: '';
+  }
+
+  &::after {
+    background-color: #c3c3c3;
+    animation: ScrollnavigateAnimation 2s infinite cubic-bezier(0.77, 0, 0.18, 1);
+  }
 }
 
 .left {
@@ -133,6 +204,11 @@ export default {
 
     .serif-text {
       margin-right: 11px;
+      letter-spacing: 2px;
+    }
+
+    &:last-child {
+      margin-top: 10px;
     }
 
     &:hover {
@@ -142,9 +218,18 @@ export default {
 }
 
 @media screen and (max-width: $noteBook) {
+  .img-wrap {
+    width: initial;
+    height: 730px;
+  }
+
   .project-wrap {
     padding-top: 130px;
     padding-right: 77px;
+  }
+
+  .scroll-wrap {
+    bottom: 35px;
   }
 
   .left {
@@ -154,7 +239,12 @@ export default {
   }
 
   .right {
+    margin-right: 20px;
     width: 215px;
+
+    .item {
+      font-size: 15px;
+    }
   }
 }
 

@@ -91,6 +91,7 @@ export default {
   position: relative;
   margin-right: 55px;
   margin-bottom: 56px;
+  overflow: hidden;
   cursor: pointer;
 
   &:nth-child(3) {
@@ -103,6 +104,10 @@ export default {
     letter-spacing: 1.2px;
   }
 
+  > img {
+    transition: 0.7s;
+  }
+
   .mask {
     position: absolute;
     top: 0;
@@ -113,6 +118,9 @@ export default {
   }
 
   &:hover {
+    img {
+      transform: scale(1.1);
+    }
     .mask {
       background-color: rgba(255, 255, 255, 0.4);
     }

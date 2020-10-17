@@ -48,7 +48,11 @@ module.exports = {
   styleResources: {
     scss: ['@/assets/css/_variables.scss'],
   },
-  plugins: [{ src: '@/plugins/vue-awesome-swiper', mode: 'client' }, '@/plugins/vue-lazyload'],
+  plugins: [
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    '@/plugins/vue-lazyload',
+    { src: '~/plugins/vue-masonry', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */

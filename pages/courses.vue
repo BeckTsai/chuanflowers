@@ -99,6 +99,7 @@ export default {
 .subtitle {
   color: $pink;
   font-size: 30px;
+  letter-spacing: 3px;
   text-align: center;
 }
 
@@ -170,6 +171,22 @@ export default {
 @media screen and (max-width: $noteBook) {
   .courses-container {
     width: 897px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .date {
+    font-size: 15px;
+  }
+
+  .text {
+    font-size: 13px;
   }
 }
 
