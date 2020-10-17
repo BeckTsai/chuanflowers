@@ -271,6 +271,13 @@ export default {
 
     .nav-wrap {
       margin: 54px 0 70px;
+
+      .nav {
+        font-size: 30px;
+        &:nth-child(2) {
+          margin: -8px 0 -8px -10px;
+        }
+      }
     }
 
     .item-wrap {

@@ -178,10 +178,10 @@ export default {}
   }
 
   .content {
-    height: 584px;
+    height: 526px;
     margin-top: 0;
     padding-top: 109px;
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .text {
