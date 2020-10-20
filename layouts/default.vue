@@ -221,6 +221,7 @@ body {
   color: #000;
 
   .menu-line {
+    background: #000;
     border-color: #000;
   }
 }

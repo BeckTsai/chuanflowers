@@ -10,10 +10,9 @@
         </div>
       </div>
       <div class="text serif-text">留連時有限，繾綣意難終。</div>
-    </div>
-    <div class="scroll-wrap">
-      <div class="scroll-indocator" />
-      <div class="scroll-text">Scroll Down</div>
+      <div class="scroll-wrap">
+        <div class="scroll-indocator" />
+      </div>
     </div>
     <Schedule />
     <Project />
@@ -56,7 +55,7 @@ export default {
       return this.$store.state.loadingShow
     },
     resultImg() {
-      if (this.windowWidth && this.windowWidth < 780) {
+      if (this.windowWidth < 780) {
         return [
           require('~/assets/image/home/banner_m_1.png'),
           require('~/assets/image/home/banner_m_2.png'),
@@ -74,9 +73,17 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.windowWidth = window.outerWidth
+      window.addEventListener('resize', (e) => {
+        this.windowWidth = e.target.outerWidth
+      })
       setTimeout(() => {
         this.$store.commit('SET_LOADING_SHOW', false)
       }, 2000)
+    })
+  },
+  beforeDestroy() {
+    window.addEventListener('resize', (e) => {
+      this.windowWidth = e.target.outerWidth
     })
   },
 }
@@ -126,7 +133,17 @@ export default {
 }
 
 .img-wrap {
-  width: 100%;
+  height: 100vh;
+  transform: scale(1);
+  transition-duration: 6s;
+}
+
+#slider {
+  /deep/.swiper-slide-active {
+    img {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .text {
@@ -145,17 +162,8 @@ export default {
   position: absolute;
   width: 100%;
   height: 90px;
-  bottom: 40px;
+  bottom: 0;
   text-align: center;
-
-  .scroll-text {
-    position: absolute;
-    left: calc(50% - 43px);
-    bottom: -24px;
-    color: #000;
-    z-index: 1;
-    font-size: 15px;
-  }
 }
 
 .scroll-indocator {
@@ -189,15 +197,6 @@ export default {
 }
 
 @media screen and (max-width: $noteBook) {
-  .img-wrap {
-    width: initial;
-    height: 730px;
-  }
-
-  .scroll-wrap {
-    bottom: 35px;
-  }
-
   .text {
     font-size: 25px;
     top: calc(50% - 204px);
@@ -212,7 +211,7 @@ export default {
 
 @media screen and (max-width: $mobile) {
   .swiper-slide {
-    height: calc(100vh - 70px);
+    height: 100vh;
     overflow: hidden;
 
     img {

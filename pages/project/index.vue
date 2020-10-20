@@ -8,10 +8,9 @@
       </div>
       <div class="swiper-pagination"></div>
       <!-- <div class="swiper-text serif-text">沒有一絲矯情，只有真實的情感。</div> -->
-    </div>
-    <div class="scroll-wrap">
-      <div class="scroll-indocator" />
-      <div class="scroll-text">Scroll Down</div>
+      <div class="scroll-wrap">
+        <div class="scroll-indocator" />
+      </div>
     </div>
     <div class="project-wrap">
       <div class="left">
@@ -41,9 +40,9 @@ export default {
       swiperOption: {
         effect: 'fade',
         loop: true,
-        speed: 4000,
+        speed: 3000,
         autoplay: {
-          delay: 4000,
+          delay: 3000,
           stopOnLastSlide: false,
           disableOnInteraction: true,
         },
@@ -56,7 +55,7 @@ export default {
   },
   computed: {
     resultImg() {
-      if (this.windowWidth && this.windowWidth < 780) {
+      if (this.windowWidth < 780) {
         return [
           require('~/assets/image/project/banner_m_1.png'),
           require('~/assets/image/project/banner_m_2.png'),
@@ -71,9 +70,11 @@ export default {
     },
   },
   mounted() {
-    console.log(window.outerWidth)
     this.$nextTick(() => {
       this.windowWidth = window.outerWidth
+      window.addEventListener('resize', (e) => {
+        this.windowWidth = e.target.outerWidth
+      })
     })
   },
 }
@@ -101,7 +102,21 @@ export default {
 }
 
 .img-wrap {
-  width: 100%;
+  height: 100vh;
+}
+
+.img-wrap {
+  height: 100vh;
+  transform: scale(1);
+  transition-duration: 6s;
+}
+
+#slider {
+  /deep/.swiper-slide-active {
+    img {
+      transform: scale(1.1);
+    }
+  }
 }
 // .swiper-text {
 //   position: absolute;
@@ -123,17 +138,8 @@ export default {
   position: absolute;
   width: 100%;
   height: 90px;
-  bottom: 40px;
+  bottom: 0;
   text-align: center;
-
-  .scroll-text {
-    position: absolute;
-    left: calc(50% - 43px);
-    bottom: -24px;
-    color: #000;
-    z-index: 1;
-    font-size: 15px;
-  }
 }
 
 .scroll-indocator {
@@ -218,18 +224,9 @@ export default {
 }
 
 @media screen and (max-width: $noteBook) {
-  .img-wrap {
-    width: initial;
-    height: 730px;
-  }
-
   .project-wrap {
     padding-top: 130px;
     padding-right: 77px;
-  }
-
-  .scroll-wrap {
-    bottom: 35px;
   }
 
   .left {
