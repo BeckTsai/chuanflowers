@@ -106,6 +106,7 @@ export default {
 }
 
 .img-wrap {
+  width: 100vw;
   height: 100vh;
   transform: scale(1);
   transition-duration: 6s;
