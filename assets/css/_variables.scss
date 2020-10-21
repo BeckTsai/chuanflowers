@@ -8,5 +8,18 @@ $grey5: #606060;
 $grey6: #c9c9c9;
 $grey7: #f7f7f7;
 
+@keyframes slideInUp {
+ from {
+   transform: translate3d(0, 100%, 0);
+   visibility: visible;
+ }
+
+ to {
+   transform: translate3d(0, 0, 0);
+ }
+}
+
+
+$largeScreen: 1921px;
 $noteBook: 1600px;
 $mobile: 780px;

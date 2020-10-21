@@ -133,7 +133,6 @@ export default {
 }
 
 .img-wrap {
-  width: 100vw;
   height: 100vh;
   transform: scale(1);
   transition-duration: 6s;
@@ -194,6 +193,12 @@ export default {
   &::after {
     background-color: #c3c3c3;
     animation: ScrollnavigateAnimation 2s infinite cubic-bezier(0.77, 0, 0.18, 1);
+  }
+}
+
+@media screen and (min-width: $largeScreen) {
+  .img-wrap {
+    width: 100vw;
   }
 }
 

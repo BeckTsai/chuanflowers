@@ -1,11 +1,11 @@
 <template>
-  <div class="schedule-content-wrap">
+  <div class="schedule-content-wrap" :class="{ 'slide-up': active }">
     <div class="schedule-contain">
-      <div class="schedule-content">
+      <div ref="scheduleContent" class="schedule-content">
         <div class="schedule-title">
           <span class="title">COURSES</span>
           <span class="line" />
-          <span class="text serif-text">檔期活動</span>
+          <!-- <span class="text serif-text">檔期活動</span> -->
         </div>
         <div class="img-wrap">
           <img src="~/assets/image/home/courses-banner.png" />
@@ -32,7 +32,23 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      active: false,
+    }
+  },
+  mounted() {
+    const imageLimit = this.$refs.scheduleContent.offsetTop + this.$refs.scheduleContent.offsetHeight / 3
+    const windowHeight = window.innerHeight
+    window.addEventListener('scroll', () => {
+      if (!this.active) {
+        this.active = imageLimit < windowHeight + window.scrollY
+        return
+      }
+    })
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -48,6 +64,7 @@ export default {}
 .schedule-content {
   display: flex;
   position: relative;
+  transform: translate3d(0, 100%, 0);
 }
 
 .schedule-title {
@@ -160,6 +177,13 @@ export default {}
 
   .arrow-right {
     transition: 0.4s;
+  }
+}
+
+.slide-up {
+  .schedule-content {
+    transform: translate3d(0, 0, 0);
+    animation: slideInUp 1s;
   }
 }
 

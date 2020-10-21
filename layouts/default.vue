@@ -227,6 +227,7 @@ body {
 }
 
 .menu-active {
+  position: fixed;
   .menu-line {
     top: 50%;
     transform: rotate(45deg);
