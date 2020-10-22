@@ -2,16 +2,16 @@
   <div class="schedule-content-wrap" :class="{ 'slide-up': active }">
     <div class="schedule-contain">
       <div ref="scheduleContent" class="schedule-content">
-        <div class="schedule-title">
-          <span class="title">COURSES</span>
-          <span class="line" />
-          <!-- <span class="text serif-text">檔期活動</span> -->
-        </div>
         <div class="img-wrap">
           <img src="~/assets/image/home/courses-banner.png" />
         </div>
+        <div class="schedule-title">
+          <span class="title">COURSES</span>
+          <span class="line" />
+          <span class="text serif-text">檔期活動</span>
+        </div>
         <div class="content-wrap">
-          <div class="text serif-text">檔期活動</div>
+          <!-- <div class="text serif-text">檔期活動</div> -->
           <div class="content-top serif-text">
             <div class="inner-title">畢業花束預購開放</div>
             <div class="inner-text">
@@ -32,21 +32,14 @@
 </template>
 
 <script>
+import setScroll from '../../mixins/setScroll'
+
 export default {
+  mixins: [setScroll],
   data() {
     return {
-      active: false,
+      slideEl: 'scheduleContent',
     }
-  },
-  mounted() {
-    const imageLimit = this.$refs.scheduleContent.offsetTop + this.$refs.scheduleContent.offsetHeight / 3
-    const windowHeight = window.innerHeight
-    window.addEventListener('scroll', () => {
-      if (!this.active) {
-        this.active = imageLimit < windowHeight + window.scrollY
-        return
-      }
-    })
   },
 }
 </script>
@@ -64,7 +57,6 @@ export default {
 .schedule-content {
   display: flex;
   position: relative;
-  transform: translate3d(0, 100%, 0);
 }
 
 .schedule-title {
@@ -74,6 +66,8 @@ export default {
   left: 60px;
   font-size: 35px;
   letter-spacing: 7px;
+  transform: translate3d(0, 500px, 0);
+  transition: transform 1s 0.1s;
 
   .title {
     display: inline-block;
@@ -81,7 +75,11 @@ export default {
   }
 
   .text {
-    display: none;
+    padding-left: 2px;
+    font-size: 22px;
+    letter-spacing: 2.2px;
+    vertical-align: initial;
+    background-color: $grey7;
   }
 }
 
@@ -96,6 +94,8 @@ export default {
 
 .img-wrap {
   width: 53%;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 1s;
 
   > img {
     width: 100%;
@@ -109,6 +109,8 @@ export default {
   position: relative;
   width: 32%;
   margin-left: 8%;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 1s 0.2s;
 
   .text {
     position: absolute;
@@ -146,6 +148,8 @@ export default {
   font-size: 18px;
   text-align: right;
   cursor: pointer;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 1s 0.3s;
 
   .btn-text-wrap {
     display: inline-block;
@@ -181,9 +185,11 @@ export default {
 }
 
 .slide-up {
-  .schedule-content {
+  .schedule-title,
+  .img-wrap,
+  .btn-wrap,
+  .content-wrap {
     transform: translate3d(0, 0, 0);
-    animation: slideInUp 1s;
   }
 }
 

@@ -103,11 +103,6 @@ export default {
 
 .img-wrap {
   height: 100vh;
-}
-
-.img-wrap {
-  width: 100vw;
-  height: 100vh;
   transform: scale(1);
   transition-duration: 6s;
 }
@@ -221,6 +216,12 @@ export default {
     &:hover {
       color: $pink;
     }
+  }
+}
+
+@media screen and (min-width: $largeScreen) {
+  .img-wrap {
+    width: 100vw;
   }
 }
 

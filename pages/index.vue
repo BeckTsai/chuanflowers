@@ -76,6 +76,9 @@ export default {
       window.addEventListener('resize', (e) => {
         this.windowWidth = e.target.outerWidth
       })
+    })
+
+    window.addEventListener('load', () => {
       setTimeout(() => {
         this.$store.commit('SET_LOADING_SHOW', false)
       }, 2000)
