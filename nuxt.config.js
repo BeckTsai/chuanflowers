@@ -17,15 +17,17 @@ module.exports = {
       { hid: 'fb:admins', property: 'fb:admins', content: 'chuanflowers' },
       { hid: 'fb_admins_meta_tag', property: 'fb_admins_meta_tag', content: 'chuanflowers' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&display=swap' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&display=swap',
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+  googleFonts: {
+    families: {
+      'Averia+Serif+Libre': [300],
+      'Noto+Serif+TC': [600],
+      Raleway: {
+        wght: [300, 600],
       },
-    ],
+    },
+    display: 'swap',
   },
   server: {
     host: '0.0.0.0',
@@ -57,7 +59,7 @@ module.exports = {
    ** Nuxt.js dev-modules
    */
   components: true,
-  buildModules: ['@aceforth/nuxt-optimized-images'],
+  buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/google-fonts'],
   optimizedImages: {
     optimizeImages: true,
   },
