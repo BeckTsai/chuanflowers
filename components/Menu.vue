@@ -1,63 +1,80 @@
 <template>
   <div class="menu">
-    <div class="left">
-      <div class="title">CATEGORY</div>
-      <div class="nav-wrap">
-        <div class="nav" @click="changeRoute('/')" @mouseenter="current = 'pic2'" @mouseleave="current = 'pic1'">
-          <span class="nav-line" />
-          HOME
-          <span class="serif-text">首頁</span>
-        </div>
-        <div class="nav" @click="changeRoute('/courses')" @mouseenter="current = 'pic3'" @mouseleave="current = 'pic1'">
-          <span class="nav-line" />
-          COURSES
-          <span class="serif-text">檔期活動</span>
-        </div>
-        <div class="nav" @click="changeRoute('/project')" @mouseenter="current = 'pic4'" @mouseleave="current = 'pic1'">
-          <span class="nav-line" />
-          PROJECT
-          <span class="serif-text">花藝作品</span>
-        </div>
-      </div>
-      <div class="items-wrap project-item">
-        <div class="title">FOLLOW US</div>
-        <div class="items">
-          <div class="item" @click="clickHandler('https://www.facebook.com/chuanflowers')">
-            <span class="btn-text">Facebook</span>
-            <b-icon icon="chevron-right" class="arrow-right" />
+    <transition name="fadeIn">
+      <div v-show="btnStatus" class="menu-container">
+        <div class="left">
+          <div class="title">CATEGORY</div>
+          <div class="nav-wrap">
+            <div class="nav" @click="changeRoute('/')" @mouseenter="current = 'pic2'" @mouseleave="current = 'pic1'">
+              <span class="nav-line" />
+              HOME
+              <span class="serif-text">首頁</span>
+            </div>
+            <div
+              class="nav"
+              @click="changeRoute('/courses')"
+              @mouseenter="current = 'pic3'"
+              @mouseleave="current = 'pic1'"
+            >
+              <span class="nav-line" />
+              COURSES
+              <span class="serif-text">檔期活動</span>
+            </div>
+            <div
+              class="nav"
+              @click="changeRoute('/project')"
+              @mouseenter="current = 'pic4'"
+              @mouseleave="current = 'pic1'"
+            >
+              <span class="nav-line" />
+              PROJECT
+              <span class="serif-text">花藝作品</span>
+            </div>
           </div>
-          <div class="item" @click="clickHandler('https://www.instagram.com/chuanflowers')">
-            <span class="btn-text">Instagram</span>
-            <b-icon icon="chevron-right" class="arrow-right" />
+          <div class="items-wrap project-item">
+            <div class="title">FOLLOW US</div>
+            <div class="items">
+              <div class="item" @click="clickHandler('https://www.facebook.com/chuanflowers')">
+                <span class="btn-text">Facebook</span>
+                <b-icon icon="chevron-right" class="arrow-right" />
+              </div>
+              <div class="item" @click="clickHandler('https://www.instagram.com/chuanflowers')">
+                <span class="btn-text">Instagram</span>
+                <b-icon icon="chevron-right" class="arrow-right" />
+              </div>
+            </div>
+          </div>
+          <div class="items-wrap">
+            <div class="title">CONTACT</div>
+            <div class="items">
+              <div class="item">chuanflowers@gmail.com</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="items-wrap">
-        <div class="title">CONTACT</div>
-        <div class="items">
-          <div class="item">chuanflowers@gmail.com</div>
+        <div class="right">
+          <transition name="fade">
+            <img v-show="current === 'pic1'" src="@/assets/image/menu/pic1.png" />
+          </transition>
+          <transition name="fade">
+            <img v-show="current === 'pic2'" src="@/assets/image/menu/pic2.png" />
+          </transition>
+          <transition name="fade">
+            <img v-show="current === 'pic3'" src="@/assets/image/menu/pic3.png" />
+          </transition>
+          <transition name="fade">
+            <img v-show="current === 'pic4'" src="@/assets/image/menu/pic4.png" />
+          </transition>
         </div>
       </div>
-    </div>
-    <div class="right">
-      <transition name="fade">
-        <img v-show="current === 'pic1'" src="@/assets/image/menu/pic1.png" />
-      </transition>
-      <transition name="fade">
-        <img v-show="current === 'pic2'" src="@/assets/image/menu/pic2.png" />
-      </transition>
-      <transition name="fade">
-        <img v-show="current === 'pic3'" src="@/assets/image/menu/pic3.png" />
-      </transition>
-      <transition name="fade">
-        <img v-show="current === 'pic4'" src="@/assets/image/menu/pic4.png" />
-      </transition>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    btnStatus: Boolean,
+  },
   data() {
     return {
       current: 'pic1',
@@ -89,17 +106,31 @@ export default {
   opacity: 0;
 }
 
-.menu {
+.fadeIn-enter-active,
+.fadeIn-leave-active {
+  transition: opacity 0.3s 1s;
+}
+
+.fadeIn-enter,
+.fadeIn-leave-to {
+  opacity: 0;
+}
+
+.menu-container {
   display: flex;
   justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu {
   position: fixed;
-  width: 100%;
-  height: 100%;
   z-index: 10;
   background-color: $pink;
 }
 
 .left {
+  height: 100vh;
   padding: 21vh 0 0 6vw;
 
   .title {
@@ -208,6 +239,7 @@ export default {
     top: 0;
     right: 0;
     width: 100%;
+    height: 100vh;
   }
 }
 

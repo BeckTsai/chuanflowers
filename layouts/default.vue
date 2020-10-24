@@ -1,7 +1,10 @@
 <template>
   <div :class="[{ 'scroll-active': scrollActive }]">
-    <transition name="fade">
-      <Menu v-show="btnStatus" class="menu" @changeRoute="changeRoute" />
+    <transition name="fadeOut">
+      <div v-if="btnStatus" class="mask" />
+    </transition>
+    <transition name="scroll">
+      <Menu v-show="btnStatus" class="menu" :btn-status="btnStatus" @changeRoute="changeRoute" />
     </transition>
     <div class="cover-bg" />
     <div class="logo" @click="$router.push('/')">
@@ -112,14 +115,38 @@ body {
 </style>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
+.scroll-enter-active,
+.scroll-leave-active {
+  transition: 0.5s cubic-bezier(0.75, 0.165, 0.715, 0.585);
 }
-.fade-enter,
-.fade-leave-to {
+
+.scroll-enter-active {
+  transition-delay: 0.5s;
+}
+
+.scroll-enter,
+.scroll-leave-to {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-enter-to,
+.scroll-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.fadeOut-enter,
+.fadeOut-leave-to {
   opacity: 0;
 }
+
+.fadeOut-enter-active {
+  transition: opacity 0.5s;
+}
+
+.fadeOut-leave-active {
+  transition: opacity 0.5s 0.5s;
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -165,6 +192,16 @@ body {
   }
 }
 
+.mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
 .logo {
   position: absolute;
   top: 33px;
@@ -176,10 +213,6 @@ body {
   img {
     width: 100%;
   }
-}
-
-.menu {
-  animation: fadeIn 0.3s;
 }
 
 .menu-show {
@@ -196,6 +229,7 @@ body {
   z-index: 10;
   color: $white;
   cursor: pointer;
+  user-select: none;
 }
 
 .menu-line {

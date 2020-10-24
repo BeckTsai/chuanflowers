@@ -7,7 +7,7 @@ module.exports = {
     title: '繾綣花藝工作室｜Chuanflowers',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { hid: 'description', name: 'description', content: '花藝設計｜花束設計｜婚禮布置' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:title', property: 'og:title', content: '繾綣花藝工作室｜Chuanflowers' },

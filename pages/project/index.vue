@@ -40,9 +40,9 @@ export default {
       swiperOption: {
         effect: 'fade',
         loop: true,
-        speed: 3000,
+        speed: 5000,
         autoplay: {
-          delay: 3000,
+          delay: 5000,
           stopOnLastSlide: false,
           disableOnInteraction: true,
         },
@@ -104,13 +104,16 @@ export default {
 .img-wrap {
   height: 100vh;
   transform: scale(1);
-  transition-duration: 6s;
+  transition: transform 10s linear;
 }
 
 #slider {
-  /deep/.swiper-slide-active {
-    img {
-      transform: scale(1.1);
+  /deep/ {
+    .swiper-slide-prev,
+    .swiper-slide-active {
+      img {
+        transform: scale(1.1);
+      }
     }
   }
 }
