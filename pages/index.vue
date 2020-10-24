@@ -5,7 +5,7 @@
     </transition>
     <div id="slider" v-swiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="(img, index) in resultImg" :key="index" class="swiper-slide">
+        <div v-for="(img, index) in resultImg" :key="index" class="swiper-slide banner-slider" :style="heightStyle">
           <img class="img-wrap" :src="img" />
         </div>
       </div>
@@ -25,6 +25,8 @@ import Schedule from '../components/home/Schedule'
 import Project from '../components/home/Project'
 import About from '../components/home/About'
 import Loading from '../components/Loading'
+import device from '../mixins/device'
+
 export default {
   components: {
     Schedule,
@@ -32,6 +34,7 @@ export default {
     About,
     Loading,
   },
+  mixins: [device],
   data() {
     return {
       swiperOption: {
