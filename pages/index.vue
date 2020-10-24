@@ -136,7 +136,8 @@ export default {
 }
 
 .img-wrap {
-  height: 100vh;
+  height: fill-available;
+
   transform: scale(1);
   transition: transform 10s linear;
 }

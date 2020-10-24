@@ -57,6 +57,9 @@ export default {
 .schedule-content {
   display: flex;
   position: relative;
+  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+  transform: translate3d(0, 10%, 0);
+  opacity: 0;
 }
 
 .schedule-title {
@@ -66,8 +69,6 @@ export default {
   left: 60px;
   font-size: 35px;
   letter-spacing: 7px;
-  transform: translate3d(0, 500px, 0);
-  transition: transform 1s 0.1s;
 
   .title {
     display: inline-block;
@@ -94,8 +95,6 @@ export default {
 
 .img-wrap {
   width: 53%;
-  transform: translate3d(0, 100%, 0);
-  transition: transform 1s;
 
   > img {
     width: 100%;
@@ -109,8 +108,6 @@ export default {
   position: relative;
   width: 32%;
   margin-left: 8%;
-  transform: translate3d(0, 100%, 0);
-  transition: transform 1s 0.2s;
 
   .text {
     position: absolute;
@@ -148,8 +145,6 @@ export default {
   font-size: 18px;
   text-align: right;
   cursor: pointer;
-  transform: translate3d(0, 100%, 0);
-  transition: transform 1s 0.3s;
 
   .btn-text-wrap {
     display: inline-block;
@@ -185,11 +180,9 @@ export default {
 }
 
 .slide-up {
-  .schedule-title,
-  .img-wrap,
-  .btn-wrap,
-  .content-wrap {
+  .schedule-content {
     transform: translate3d(0, 0, 0);
+    opacity: 1;
   }
 }
 

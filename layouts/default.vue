@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{ 'scroll-active': scrollActive }]">
+  <div :class="[{ 'scroll-active': scrollActive }, { 'scroll-lock': btnStatus }]">
     <transition name="fadeOut">
       <div v-if="btnStatus" class="mask" />
     </transition>
@@ -117,11 +117,7 @@ body {
 <style lang="scss" scoped>
 .scroll-enter-active,
 .scroll-leave-active {
-  transition: 0.5s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-}
-
-.scroll-enter-active {
-  transition-delay: 0.5s;
+  transition: 0.5s 0.5s cubic-bezier(0.75, 0.165, 0.715, 0.585);
 }
 
 .scroll-enter,
@@ -144,7 +140,7 @@ body {
 }
 
 .fadeOut-leave-active {
-  transition: opacity 0.5s 0.5s;
+  transition: opacity 0.5s 1s;
 }
 
 @keyframes fadeOut {
@@ -190,6 +186,11 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.scroll-lock {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .mask {

@@ -108,7 +108,11 @@ export default {
 
 .fadeIn-enter-active,
 .fadeIn-leave-active {
-  transition: opacity 0.3s 1s;
+  transition: opacity 0.5s 1.3s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+}
+
+.fadeIn-leave-active {
+  transition-delay: 0s;
 }
 
 .fadeIn-enter,
@@ -126,6 +130,8 @@ export default {
 .menu {
   position: fixed;
   z-index: 10;
+  width: 100vw;
+  height: 100vh;
   background-color: $pink;
 }
 
