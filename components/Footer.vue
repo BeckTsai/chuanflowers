@@ -46,8 +46,12 @@
       <div class="title">CHUAN FLOWERS</div>
       <div class="subtitle serif-text">繾綣花藝工作室</div>
       <div class="area-number">40349</div>
-      <div class="address serif-text">台中市西區中美街299巷14號1樓</div>
-      <div class="en-address">1F., No. 14, Ln. 229, Zhongmei St., West Dist., Taichung City 403, Taiwan</div>
+      <div class="address serif-text" @click="openWindow">
+        台中市西區中美街299巷14號1樓
+      </div>
+      <div class="en-address" @click="openWindow">
+        1F., No. 14, Ln. 299, Zhongmei St., West Dist., Taichung City 403, Taiwan
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +61,9 @@ export default {
   methods: {
     clickHandler(url) {
       window.open(url)
+    },
+    openWindow() {
+      window.open('https://goo.gl/maps/pT6BPqchWNzrXSDf8', 'google map')
     },
   },
 }
@@ -156,11 +163,13 @@ export default {
 
   .address {
     font-size: 13px;
+    cursor: pointer;
   }
 
   .en-address {
     margin-top: 22px;
     font-size: 12px;
+    cursor: pointer;
   }
 }
 

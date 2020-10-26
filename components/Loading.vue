@@ -21,7 +21,7 @@ export default {}
 
 .position-fixed {
   background-color: $white;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
@@ -30,8 +30,9 @@ export default {}
 
 .text {
   position: absolute;
-  top: calc(50% - 226px);
-  left: calc(50% - 26px);
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   font-size: 30px;
   writing-mode: vertical-rl;
   letter-spacing: 9px;
@@ -40,14 +41,15 @@ export default {}
 
 @media screen and (max-width: $noteBook) {
   .text {
+    height: 410px;
     font-size: 25px;
   }
 }
 
 @media screen and (max-width: $mobile) {
   .text {
-    top: calc(50% - 239px);
-    left: calc(50% - 19px);
+    height: 360px;
+    font-size: 20px;
   }
 }
 </style>

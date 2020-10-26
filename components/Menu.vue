@@ -1,6 +1,6 @@
 <template>
-  <div class="menu">
-    <transition name="fadeIn">
+  <div class="menu" @touchmove.prevent.self @scroll.prevent.self>
+    <transition name="fadeInn">
       <div v-show="btnStatus" class="menu-container">
         <div class="left">
           <div class="title">CATEGORY</div>
@@ -106,17 +106,17 @@ export default {
   opacity: 0;
 }
 
-.fadeIn-enter-active,
-.fadeIn-leave-active {
+.fadeInn-enter-active,
+.fadeInn-leave-active {
   transition: opacity 0.5s 1.3s cubic-bezier(0.75, 0.165, 0.715, 0.585);
 }
 
-.fadeIn-leave-active {
+.fadeInn-leave-active {
   transition-delay: 0s;
 }
 
-.fadeIn-enter,
-.fadeIn-leave-to {
+.fadeInn-enter,
+.fadeInn-leave-to {
   opacity: 0;
 }
 
@@ -244,7 +244,6 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
     height: 100vh;
   }
 }

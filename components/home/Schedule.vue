@@ -45,6 +45,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.set-scroll {
+  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+  transform: translate3d(0, 10%, 0);
+  opacity: 0;
+}
+
+.scroll-position {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
 .schedule-content-wrap {
   background-color: $grey7;
   color: $grey3;
@@ -57,9 +68,6 @@ export default {
 .schedule-content {
   display: flex;
   position: relative;
-  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-  transform: translate3d(0, 10%, 0);
-  opacity: 0;
 }
 
 .schedule-title {
@@ -69,6 +77,7 @@ export default {
   left: 60px;
   font-size: 35px;
   letter-spacing: 7px;
+  @extend .set-scroll;
 
   .title {
     display: inline-block;
@@ -95,6 +104,7 @@ export default {
 
 .img-wrap {
   width: 53%;
+  @extend .set-scroll;
 
   > img {
     width: 100%;
@@ -108,6 +118,7 @@ export default {
   position: relative;
   width: 32%;
   margin-left: 8%;
+  @extend .set-scroll;
 
   .text {
     position: absolute;
@@ -145,6 +156,7 @@ export default {
   font-size: 18px;
   text-align: right;
   cursor: pointer;
+  @extend .set-scroll;
 
   .btn-text-wrap {
     display: inline-block;
@@ -180,9 +192,15 @@ export default {
 }
 
 .slide-up {
-  .schedule-content {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
+  .content-wrap,
+  .schedule-title,
+  .btn-wrap {
+    @extend .scroll-position;
+  }
+
+  .img-wrap {
+    @extend .scroll-position;
+    transition-delay: 0.2s;
   }
 }
 

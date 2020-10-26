@@ -21,5 +21,8 @@ export default {
         }
       })
     },
+    getImageLimit(el) {
+      return this.$refs[el].offsetTop + this.$refs[el].offsetHeight / 3
+    },
   },
 }

@@ -5,8 +5,11 @@
     </transition>
     <div id="slider" v-swiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="(img, index) in resultImg" :key="index" class="swiper-slide banner-slider" :style="heightStyle">
-          <img class="img-wrap" :src="img" />
+        <div v-for="(img, index) in imgList" :key="index" class="swiper-slide banner-slider" :style="heightStyle">
+          <picture>
+            <source class="img-wrap" :srcset="img.mobile" media="(max-width: 760px)" />
+            <img class="img-wrap" :src="img.pc" alt="" />
+          </picture>
         </div>
       </div>
       <div class="text serif-text">留連時有限，繾綣意難終。</div>
@@ -26,6 +29,12 @@ import Project from '../components/home/Project'
 import About from '../components/home/About'
 import Loading from '../components/Loading'
 import device from '../mixins/device'
+import mobilePic1 from '~/assets/image/home/banner_m_1.png'
+import mobilePic2 from '~/assets/image/home/banner_m_2.png'
+import mobilePic3 from '~/assets/image/home/banner_m_3.png'
+import Pic1 from '~/assets/image/home/banner_1.png'
+import Pic2 from '~/assets/image/home/banner_2.png'
+import Pic3 from '~/assets/image/home/banner_3.png'
 
 export default {
   components: {
@@ -50,37 +59,20 @@ export default {
           crossFade: true,
         },
       },
-      windowWidth: null,
+      imgList: [
+        { pc: Pic1, mobile: mobilePic1 },
+        { pc: Pic2, mobile: mobilePic2 },
+        { pc: Pic3, mobile: mobilePic3 },
+      ],
     }
   },
   computed: {
     loadingShow() {
       return this.$store.state.loadingShow
     },
-    resultImg() {
-      if (this.windowWidth < 780) {
-        return [
-          require('~/assets/image/home/banner_m_1.png'),
-          require('~/assets/image/home/banner_m_2.png'),
-          require('~/assets/image/home/banner_m_3.png'),
-        ]
-      }
-      return [
-        require('~/assets/image/home/banner_1.png'),
-        require('~/assets/image/home/banner_2.png'),
-        require('~/assets/image/home/banner_3.png'),
-      ]
-    },
   },
   transition: 'default',
   mounted() {
-    this.$nextTick(() => {
-      this.windowWidth = window.outerWidth
-      window.addEventListener('resize', (e) => {
-        this.windowWidth = e.target.outerWidth
-      })
-    })
-
     window.addEventListener('load', () => {
       setTimeout(() => {
         this.$store.commit('SET_LOADING_SHOW', false)
@@ -90,6 +82,12 @@ export default {
   beforeDestroy() {
     window.addEventListener('resize', (e) => {
       this.windowWidth = e.target.outerWidth
+    })
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        this.$store.commit('SET_LOADING_SHOW', false)
+      }, 2000)
     })
   },
 }
@@ -139,7 +137,7 @@ export default {
 }
 
 .img-wrap {
-  height: fill-available;
+  height: 100vh;
 
   transform: scale(1);
   transition: transform 10s linear;
@@ -158,8 +156,9 @@ export default {
 
 .text {
   position: absolute;
-  top: calc(50% - 234px);
-  left: calc(50% - 22px);
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
   font-size: 30px;
   writing-mode: vertical-rl;
   letter-spacing: 9px;
@@ -214,9 +213,8 @@ export default {
 
 @media screen and (max-width: $noteBook) {
   .text {
+    height: 410px;
     font-size: 25px;
-    top: calc(50% - 204px);
-    left: calc(50% - 19px);
   }
 
   .content {
@@ -226,6 +224,11 @@ export default {
 }
 
 @media screen and (max-width: $mobile) {
+  .text {
+    height: 360px;
+    font-size: 20px;
+  }
+
   .swiper-slide {
     height: 100vh;
     overflow: hidden;

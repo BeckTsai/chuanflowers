@@ -2,12 +2,15 @@
   <div>
     <div id="slider" v-swiper="swiperOption">
       <div class="swiper-wrapper">
-        <div v-for="(img, index) in resultImg" :key="index" class="swiper-slide banner-slider">
-          <img :src="img" class="img-wrap" />
+        <div v-for="(img, index) in imgList" :key="index" :style="heightStyle" class="swiper-slide banner-slider">
+          <picture>
+            <source class="img-wrap" :srcset="img.mobile" media="(max-width: 760px)" />
+            <img class="img-wrap" :src="img.pc" alt="" />
+          </picture>
         </div>
       </div>
       <div class="swiper-pagination"></div>
-      <!-- <div class="swiper-text serif-text">沒有一絲矯情，只有真實的情感。</div> -->
+      <div class="swiper-text serif-text">我們擁有彼此的盛開。</div>
       <div class="scroll-wrap">
         <div class="scroll-indocator" />
       </div>
@@ -30,11 +33,19 @@
 
 <script>
 import WorksList from '../../components/Courses/WorksList'
+import device from '../../mixins/device'
+import mobilePic1 from '~/assets/image/project/banner_m_1.png'
+import mobilePic2 from '~/assets/image/project/banner_m_2.png'
+import mobilePic3 from '~/assets/image/project/banner_m_3.png'
+import Pic1 from '~/assets/image/project/banner_1.png'
+import Pic2 from '~/assets/image/project/banner_2.png'
+import Pic3 from '~/assets/image/project/banner_3.png'
 
 export default {
   components: {
     WorksList,
   },
+  mixins: [device],
   data() {
     return {
       swiperOption: {
@@ -51,23 +62,12 @@ export default {
         },
       },
       windowWidth: null,
+      imgList: [
+        { pc: Pic1, mobile: mobilePic1 },
+        { pc: Pic2, mobile: mobilePic2 },
+        { pc: Pic3, mobile: mobilePic3 },
+      ],
     }
-  },
-  computed: {
-    resultImg() {
-      if (this.windowWidth < 780) {
-        return [
-          require('~/assets/image/project/banner_m_1.png'),
-          require('~/assets/image/project/banner_m_2.png'),
-          require('~/assets/image/project/banner_m_3.png'),
-        ]
-      }
-      return [
-        require('~/assets/image/project/banner_1.png'),
-        require('~/assets/image/project/banner_2.png'),
-        require('~/assets/image/project/banner_3.png'),
-      ]
-    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -117,15 +117,17 @@ export default {
     }
   }
 }
-// .swiper-text {
-//   position: absolute;
-//   top: 26%;
-//   left: 50%;
-//   font-size: 30px;
-//   color: $white;
-//   writing-mode: vertical-lr;
-//   z-index: 1;
-// }
+.swiper-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  transform: translate3d(-50%, -50%, 0);
+  letter-spacing: 9px;
+  color: $white;
+  writing-mode: vertical-lr;
+  z-index: 1;
+}
 
 .project-wrap {
   display: flex;
@@ -234,6 +236,10 @@ export default {
     padding-right: 77px;
   }
 
+  .swiper-text {
+    font-size: 25px;
+  }
+
   .left {
     .list {
       width: initial;
@@ -254,6 +260,10 @@ export default {
   .project-wrap {
     display: block;
     padding: 93px 0 0 17px;
+  }
+
+  .swiper-text {
+    font-size: 20px;
   }
 
   .list {
