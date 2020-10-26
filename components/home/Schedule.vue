@@ -2,13 +2,13 @@
   <div class="schedule-content-wrap" :class="{ 'slide-up': active }">
     <div class="schedule-contain">
       <div ref="scheduleContent" class="schedule-content">
-        <div class="img-wrap">
-          <img src="~/assets/image/home/courses-banner.png" />
-        </div>
         <div class="schedule-title">
           <span class="title">COURSES</span>
           <span class="line" />
           <span class="text serif-text">檔期活動</span>
+        </div>
+        <div class="img-wrap">
+          <img src="~/assets/image/home/courses-banner.png" />
         </div>
         <div class="content-wrap">
           <!-- <div class="text serif-text">檔期活動</div> -->
@@ -77,6 +77,7 @@ export default {
   left: 60px;
   font-size: 35px;
   letter-spacing: 7px;
+  z-index: 1;
   @extend .set-scroll;
 
   .title {
