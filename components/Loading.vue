@@ -1,11 +1,15 @@
 <template>
-  <div class="position-fixed">
+  <div class="position-fixed" :style="heightStyle">
     <div class="text serif-text">留連時有限，繾綣意難終。</div>
   </div>
 </template>
 
 <script>
-export default {}
+import device from '../mixins/device'
+
+export default {
+  mixins: [device],
+}
 </script>
 
 <style lang="scss" scoped>
