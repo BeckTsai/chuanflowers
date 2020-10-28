@@ -399,6 +399,16 @@ export default {
   .swiper-thumbs {
     .swiper-slide {
       height: 72px;
+      img {
+        position: absolute;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+
+        &.straight-picture {
+          top: -90px;
+        }
+      }
     }
   }
 
