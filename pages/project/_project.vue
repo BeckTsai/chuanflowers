@@ -269,7 +269,7 @@ export default {
   padding: 0 43px;
   .swiper-slide {
     position: relative;
-    height: 105px;
+    height: 101px;
     overflow: hidden;
     cursor: pointer;
 
@@ -393,6 +393,12 @@ export default {
   .swiper-top {
     .swiper-slide {
       height: 400px;
+    }
+  }
+
+  .swiper-thumbs {
+    .swiper-slide {
+      height: 72px;
     }
   }
 
