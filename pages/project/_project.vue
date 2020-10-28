@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="swiper-top">
-          <div ref="swiperTop" v-swiper="swiperOption" class="swiper-wrap">
+          <div id="swiper-top" ref="swiperTop" v-swiper="swiperOption" class="swiper-wrap">
             <div class="swiper-wrapper">
               <div v-for="(item, index) in imgItems" :key="`top-${index}`" class="swiper-slide">
                 <img v-lazy="require(`@/assets/image/project${item.src}`)" />
@@ -87,15 +87,21 @@ export default {
               this.onSwiperClick(this.activeIndex)
             })
           },
+          slideChange: () => {
+            this.activeIndex = this.$refs.swiperTop.swiper.activeIndex
+          },
         },
       },
       swiperOptionThumbs: {
         speed: 1000,
         breakpoints: {
-          375: { width: 134 },
-          768: { width: 134 },
-          1280: { width: 141 },
+          375: { slidesPerView: 3 },
+          414: { slidesPerView: 3 },
+          768: { slidesPerView: 3 },
+          1280: { slidesPerView: 9 },
         },
+        spaceBetween: 19,
+        centeredSlides: true,
       },
       list: [
         {
@@ -143,6 +149,11 @@ export default {
     },
     realIndex() {
       return this.$refs
+    },
+  },
+  watch: {
+    activeIndex() {
+      setTimeout(() => this.$refs.swiperThumbs.$swiper.slideTo(this.activeIndex), 100)
     },
   },
   mounted() {
@@ -258,11 +269,13 @@ export default {
   padding: 0 43px;
   .swiper-slide {
     position: relative;
-    width: 141px !important;
-    height: 80px;
+    height: 105px;
     overflow: hidden;
-    margin-right: 29px;
     cursor: pointer;
+
+    &.swiper-slide-active {
+      border: 4px solid $pink;
+    }
 
     img {
       position: absolute;
@@ -421,9 +434,10 @@ export default {
     padding: 0 17px;
 
     .swiper-slide {
-      width: 100px !important;
-      height: 56px;
-      margin-right: 19px;
+      height: 57px;
+      &.swiper-slide-active {
+        border: 2px solid $pink;
+      }
     }
   }
 
