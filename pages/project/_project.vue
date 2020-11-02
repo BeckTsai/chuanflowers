@@ -1,6 +1,6 @@
 <template>
   <div class="works">
-    <div class="works-wrap">
+    <div>
       <div class="top">
         <div class="title">SELECTED WORKS</div>
         <div class="line" />
@@ -8,16 +8,19 @@
         <div class="title serif-text">{{ resultList[0].zhText }}</div>
       </div>
       <div class="img-list">
-        <div v-for="(item, idx) in imgItems" :key="idx" class="img-wrap" @click="clickHandler(idx)">
-          <img
-            v-lazy="require(`@/assets/image/project${item.src}`)"
-            :class="[{ 'straight-picture': item.isStraight }]"
-          />
+        <div
+          v-for="(item, idx) in imgItems"
+          :key="idx"
+          class="img-wrap"
+          :class="[item.type]"
+          @click="clickHandler(idx)"
+        >
+          <img v-lazy="require(`@/assets/image/project${item.src}`)" />
           <div class="mask"></div>
         </div>
       </div>
       <div class="works-title">OTHER WORKS</div>
-      <WorksList :route="route" />
+      <WorksList :route="route" class="works-list" />
     </div>
     <transition name="fade">
       <div v-if="popupStatus" class="swiper-contain">
@@ -243,6 +246,10 @@ export default {
   }
 }
 
+.top {
+  text-align: center;
+}
+
 .swiper-top {
   .swiper-wrap {
     width: 1100px;
@@ -299,13 +306,13 @@ export default {
 }
 
 .works {
+  width: 1040px;
+  margin: 0 auto;
   padding: 175px 0 77px;
   background-color: $white;
 }
 
 .works-wrap {
-  width: 1150px;
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -330,17 +337,21 @@ export default {
 }
 
 .img-list {
-  display: flex;
-  flex-wrap: wrap;
+  width: 1040px;
+  margin: 0 auto;
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 .img-wrap {
+  float: left;
   position: relative;
-  width: 310px;
-  height: 174px;
   overflow: hidden;
-  margin-right: 55px;
-  margin-bottom: 85px;
+  margin-left: 11px;
+  margin-bottom: 13px;
   cursor: pointer;
 
   img {
@@ -354,12 +365,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     transition: 0.5s;
-  }
-
-  &:nth-child(3n) {
-    margin-right: 0;
   }
 
   &:hover {
@@ -367,15 +373,43 @@ export default {
       background-color: rgba(255, 255, 255, 0.4);
     }
   }
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.small {
+  width: 335px;
+  height: 188px;
+}
+
+.middle {
+  width: 335px;
+  height: 389px;
+}
+
+.large {
+  width: 681px;
+  height: 389px;
 }
 
 .straight-picture {
   top: -147px;
 }
 
+.works-list {
+  margin-left: 11px;
+}
+
 .works-title {
+  margin: 131px 0 77px 11px;
+  padding: 90px;
+  border-top: 1px solid $grey6;
   font-size: 15px;
-  margin-bottom: 77px;
+  text-align: center;
 }
 
 @media screen and (max-width: $noteBook) {
@@ -414,13 +448,6 @@ export default {
 
   .works-wrap {
     width: 897px;
-  }
-
-  .img-wrap {
-    width: 267px;
-    height: 150px;
-    margin-right: 48px;
-    margin-bottom: 71px;
   }
 
   .head {
@@ -466,8 +493,13 @@ export default {
   }
 
   .works {
+    width: 360px;
     padding: 88px 0 51px;
     background-color: $white;
+  }
+
+  .img-list {
+    width: 360px;
   }
 
   .title {
@@ -487,21 +519,23 @@ export default {
   }
 
   .img-wrap {
-    position: relative;
-    width: 158px;
-    height: 90px;
-    overflow: hidden;
-    margin-right: 20px;
-    margin-bottom: 23px;
-    cursor: pointer;
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
 
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
+  .small {
+    width: 110px;
+    height: 62px;
+  }
 
-    &:nth-child(3n) {
-      margin-right: auto;
-    }
+  .middle {
+    width: 110px;
+    height: 132px;
+  }
+
+  .large {
+    width: 228px;
+    height: 132px;
   }
 
   .works-title {

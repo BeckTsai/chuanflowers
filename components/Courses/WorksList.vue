@@ -89,7 +89,7 @@ export default {
 
 .img-wrap {
   position: relative;
-  margin-right: 55px;
+  margin-right: 48px;
   margin-bottom: 56px;
   overflow: hidden;
   cursor: pointer;
