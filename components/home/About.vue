@@ -1,5 +1,5 @@
 <template>
-  <div class="d-xl-flex position-relative">
+  <div ref="about" class="d-xl-flex position-relative" :class="{ 'slide-up': active }">
     <div class="about-wrap">
       <div class="about-title">ABOUT</div>
       <div class="line"></div>
@@ -12,10 +12,10 @@
       <img src="~/assets/image/home/about.png" />
     </div>
     <div class="right position-relative">
-      <div class="title position-absolute">
+      <!-- <div class="title position-absolute">
         <span class="serif-text">繾綣 </span>
         Chuan
-      </div>
+      </div> -->
       <div class="content serif-text">
         <span>花能夠訴說所有沒能說出口的話語，</span>
         <span>傳達所有不該被時間拘束的情感。</span>
@@ -26,10 +26,33 @@
 </template>
 
 <script>
-export default {}
+import getImageLimit from '@/mixins/getImageLimit.js'
+
+export default {
+  mixins: [getImageLimit],
+  watch: {
+    scrollPosition() {
+      const imageLimit = this.getImageLimit('about')
+      if (!this.active) {
+        this.active = imageLimit < this.scrollPosition
+      }
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
+.set-scroll {
+  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+  transform: translate3d(0, 10%, 0);
+  opacity: 0;
+}
+
+.scroll-position {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
 .about-wrap {
   display: flex;
   position: absolute;
@@ -37,9 +60,14 @@ export default {}
   top: 60px;
   left: 207px;
   width: 60%;
+  z-index: 1;
+  @extend .set-scroll;
 
   .title {
-    display: none;
+    padding-left: 4px;
+    letter-spacing: 2.2px;
+    vertical-align: initial;
+    color: $white;
   }
 }
 
@@ -50,7 +78,7 @@ export default {}
 }
 
 .line {
-  width: 100%;
+  width: 32vw;
   height: 1px;
   background-color: $white;
   z-index: 1;
@@ -92,6 +120,7 @@ export default {}
   height: 608px;
   font-size: 25px;
   letter-spacing: 13px;
+  @extend .set-scroll;
 
   span {
     display: inline-block;
@@ -107,6 +136,19 @@ export default {}
   bottom: 34px;
   right: 79px;
   font-size: 13px;
+  @extend .set-scroll;
+}
+
+.slide-up {
+  .about-wrap {
+    @extend .scroll-position;
+  }
+
+  .content,
+  .text {
+    @extend .scroll-position;
+    transition-delay: 0.2s;
+  }
 }
 
 @media screen and (max-width: $noteBook) {

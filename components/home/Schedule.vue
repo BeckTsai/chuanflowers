@@ -32,14 +32,17 @@
 </template>
 
 <script>
-import setScroll from '../../mixins/setScroll'
+import getImageLimit from '@/mixins/getImageLimit.js'
 
 export default {
-  mixins: [setScroll],
-  data() {
-    return {
-      slideEl: 'scheduleContent',
-    }
+  mixins: [getImageLimit],
+  watch: {
+    scrollPosition() {
+      const imageLimit = this.getImageLimit('scheduleContent')
+      if (!this.active) {
+        this.active = imageLimit < this.scrollPosition
+      }
+    },
   },
 }
 </script>

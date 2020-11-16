@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      active: false,
+      scrollPosition: 0,
     }
   },
   mounted() {
@@ -12,17 +12,14 @@ export default {
   },
   methods: {
     setScroll() {
-      const imageLimit = this.$refs[this.slideEl].offsetTop + this.$refs[this.slideEl].offsetHeight / 3
+      // const imageLimit = this.$refs[this.slideEl].offsetTop + this.$refs[this.slideEl].offsetHeight / 3
       const windowHeight = window.innerHeight
       window.addEventListener('scroll', () => {
-        if (!this.active) {
-          this.active = imageLimit < windowHeight + window.scrollY
-          return
-        }
+        this.scrollPosition = windowHeight + window.scrollY
       })
     },
-    getImageLimit(el) {
-      return this.$refs[el].offsetTop + this.$refs[el].offsetHeight / 3
-    },
+    // getImageLimit(el) {
+    //   return this.$refs[el].offsetTop + this.$refs[el].offsetHeight / 3
+    // },
   },
 }

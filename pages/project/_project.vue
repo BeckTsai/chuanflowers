@@ -358,6 +358,7 @@ export default {
     position: absolute;
     left: 0;
     width: 100%;
+    transition: 0.5s;
   }
 
   .mask {
@@ -365,10 +366,15 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     transition: 0.5s;
   }
 
   &:hover {
+    img {
+      transform: scale(1.1);
+    }
+
     .mask {
       background-color: rgba(255, 255, 255, 0.4);
     }

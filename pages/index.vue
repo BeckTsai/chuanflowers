@@ -1,8 +1,5 @@
 <template>
   <div>
-    <transition name="fade">
-      <Loading v-show="loadingShow" />
-    </transition>
     <div id="slider" v-swiper="swiperOption">
       <div class="swiper-wrapper">
         <div v-for="(img, index) in imgList" :key="index" class="swiper-slide banner-slider" :style="heightStyle">
@@ -17,9 +14,9 @@
         <div class="scroll-indocator" />
       </div>
     </div>
-    <Schedule />
-    <Project />
-    <About />
+    <Schedule :scroll-position="scrollPosition" />
+    <Project :scroll-position="scrollPosition" />
+    <About :scroll-position="scrollPosition" />
   </div>
 </template>
 
@@ -27,8 +24,8 @@
 import Schedule from '../components/home/Schedule'
 import Project from '../components/home/Project'
 import About from '../components/home/About'
-import Loading from '../components/Loading'
 import device from '../mixins/device'
+import setScroll from '../mixins/setScroll'
 import mobilePic1 from '~/assets/image/home/banner_m_1.png'
 import mobilePic2 from '~/assets/image/home/banner_m_2.png'
 import mobilePic3 from '~/assets/image/home/banner_m_3.png'
@@ -41,9 +38,8 @@ export default {
     Schedule,
     Project,
     About,
-    Loading,
   },
-  mixins: [device],
+  mixins: [device, setScroll],
   data() {
     return {
       swiperOption: {
@@ -72,24 +68,6 @@ export default {
     },
   },
   transition: 'default',
-  mounted() {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        this.$store.commit('SET_LOADING_SHOW', false)
-      }, 2000)
-    })
-  },
-  beforeDestroy() {
-    window.addEventListener('resize', (e) => {
-      this.windowWidth = e.target.outerWidth
-    })
-
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        this.$store.commit('SET_LOADING_SHOW', false)
-      }, 2000)
-    })
-  },
 }
 </script>
 

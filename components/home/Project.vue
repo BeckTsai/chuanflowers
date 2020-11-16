@@ -1,9 +1,11 @@
 <template>
   <div class="project-wrap">
-    <div class="title">PROJECT</div>
-    <div class="subtitle">Selected Works</div>
+    <div ref="projectTitle" :class="{ 'slide-up': projectTitleActive }">
+      <div class="title">PROJECT</div>
+      <div class="subtitle">Selected Works</div>
+    </div>
     <div class="items-wrap">
-      <div class="item-wrap">
+      <div ref="project1" class="item-wrap" :class="{ 'slide-up': project1Active }">
         <div class="img-wrap" @click="$router.push('/project/floral_bouquet')">
           <img src="@/assets/image/home/floral-bouquet.png" alt="Floral bouquet" />
           <div class="mask" />
@@ -11,7 +13,7 @@
         <div class="item-text"><span class="serif-text">花束</span>Floral bouquet</div>
         <div class="list">01</div>
       </div>
-      <div class="item-wrap">
+      <div ref="project2" class="item-wrap" :class="{ 'slide-up': project2Active }">
         <div class="img-wrap" @click="$router.push('/project/wreath')">
           <img src="@/assets/image/home/wreath.png" alt="Wreath" />
           <div class="mask" />
@@ -19,7 +21,7 @@
         <div class="item-text"><span class="serif-text">花圈</span>Wreath</div>
         <div class="list">02</div>
       </div>
-      <div class="item-wrap">
+      <div ref="project3" class="item-wrap" :class="{ 'slide-up': project3Active }">
         <div class="img-wrap" @click="$router.push('/project/floral_box')">
           <img src="@/assets/image/home/floral-box.png" alt="Floral box" />
           <div class="mask" />
@@ -27,7 +29,7 @@
         <div class="item-text"><span class="serif-text">花禮/花盒/盆花</span>Floral box</div>
         <div class="list">03</div>
       </div>
-      <div class="item-wrap">
+      <div ref="project4" class="item-wrap" :class="{ 'slide-up': project4Active }">
         <div class="img-wrap" @click="$router.push('/project/bridal_bouquet')">
           <img src="@/assets/image/home/bridal-bouquet.png" alt="Bridal bouquet" />
           <div class="mask" />
@@ -35,7 +37,7 @@
         <div class="item-text"><span class="serif-text">捧花/胸花</span>Bridal bouquet</div>
         <div class="list">04</div>
       </div>
-      <div class="item-wrap">
+      <div ref="project5" class="item-wrap" :class="{ 'slide-up': project5Active }">
         <div class="img-wrap" @click="$router.push('/project/wedding_decor')">
           <img src="@/assets/image/home/wedding-decor.png" alt="Wedding decor" />
           <div class="mask" />
@@ -66,7 +68,10 @@
 </template>
 
 <script>
+import getImageLimit from '@/mixins/getImageLimit.js'
+
 export default {
+  mixins: [getImageLimit],
   data: () => ({
     swiperOption: {
       width: 330,
@@ -95,11 +100,73 @@ export default {
         enText: 'Wedding decor',
       },
     ],
+    projectTitleActive: false,
+    project1Active: false,
+    project2Active: false,
+    project3Active: false,
+    project4Active: false,
+    project5Active: false,
+    project1ImageLimit: 0,
+    project2ImageLimit: 0,
+    project3ImageLimit: 0,
+    project4ImageLimit: 0,
+    project5ImageLimit: 0,
   }),
+  watch: {
+    scrollPosition() {
+      if (!this.projectTitleActive) {
+        const projectTitleImageLimit = this.getImageLimit('projectTitle')
+        this.projectTitleActive = projectTitleImageLimit < this.scrollPosition
+      }
+
+      if (!this.project1Active) {
+        console.log(this.project1ImageLimit)
+        console.log(this.scrollPosition)
+        console.log(this.$refs.project1.getBoundingClientRect())
+        this.project1Active = this.project1ImageLimit < this.scrollPosition
+      }
+
+      if (!this.project2Active) {
+        this.project2Active = this.project2ImageLimit < this.scrollPosition
+      }
+
+      if (!this.project3Active) {
+        this.project3Active = this.project3ImageLimit < this.scrollPosition
+      }
+
+      if (!this.project4Active) {
+        this.project4Active = this.project4ImageLimit < this.scrollPosition
+      }
+
+      if (!this.project5Active) {
+        this.project5Active = this.project5ImageLimit < this.scrollPosition
+      }
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.project1ImageLimit = this.getPoisonHeight('project1')
+      this.project2ImageLimit = this.getPoisonHeight('project2')
+      this.project3ImageLimit = this.getPoisonHeight('project3')
+      this.project4ImageLimit = this.getPoisonHeight('project4')
+      this.project5ImageLimit = this.getPoisonHeight('project5')
+    })
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+.set-scroll {
+  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+  transform: translate3d(0, 10%, 0);
+  opacity: 0;
+}
+
+.scroll-position {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
 .project-wrap {
   height: 156vw;
   background-color: $white;
@@ -111,6 +178,7 @@ export default {
   font-size: 35px;
   letter-spacing: 7px;
   text-align: center;
+  @extend .set-scroll;
 }
 
 .subtitle {
@@ -118,6 +186,7 @@ export default {
   font-size: 18px;
   text-align: center;
   color: $grey3;
+  @extend .set-scroll;
 }
 
 .items-wrap {
@@ -132,11 +201,13 @@ export default {
     left: 14px;
     color: $grey1;
     font-size: 50px;
+    @extend .set-scroll;
   }
 
   .img-wrap {
     overflow: hidden;
     cursor: pointer;
+    @extend .set-scroll;
 
     img {
       width: 100%;
@@ -148,7 +219,7 @@ export default {
       top: 0;
       left: 0;
       width: 100%;
-      height: calc(100% - 27px);
+      height: 100%;
       transition: 0.5s;
     }
 
@@ -166,6 +237,7 @@ export default {
   .item-text {
     font-size: 18px;
     text-align: right;
+    @extend .set-scroll;
 
     .serif-text {
       margin-right: 5px;
@@ -206,6 +278,24 @@ export default {
 .slider {
   display: none;
 }
+
+.slide-up {
+  .title,
+  .subtitle {
+    @extend .scroll-position;
+  }
+
+  .img-wrap {
+    @extend .scroll-position;
+  }
+
+  .list,
+  .item-text {
+    @extend .scroll-position;
+    transition-delay: 0.4s;
+  }
+}
+
 @media screen and (max-width: $noteBook) {
   .title {
     font-size: 25px;

@@ -1,5 +1,8 @@
 <template>
   <div :class="[{ 'scroll-active': scrollActive }]">
+    <transition name="fade">
+      <Loading v-show="loadingShow" />
+    </transition>
     <transition name="fadeOut">
       <div v-if="btnStatus" class="mask" />
     </transition>
@@ -30,11 +33,13 @@
 import tplFooter from '@/components/Footer'
 import Menu from '@/components/Menu'
 import banner from '@/assets/image/project/banner_2.png'
+import Loading from '../components/Loading'
 
 export default {
   components: {
     tplFooter,
     Menu,
+    Loading,
   },
   data() {
     return {
@@ -43,12 +48,27 @@ export default {
       status: false,
     }
   },
+  computed: {
+    loadingShow() {
+      return this.$store.state.loadingShow
+    },
+  },
   mounted() {
     this.swiperHeight()
     window.scrollTo({ top: 0 })
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        this.$store.commit('SET_LOADING_SHOW', false)
+      }, 2000)
+    })
   },
   beforeDestroy() {
     this.swiperHeight()
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        this.$store.commit('SET_LOADING_SHOW', false)
+      }, 2000)
+    })
   },
   methods: {
     swiperHeight() {
