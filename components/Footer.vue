@@ -1,63 +1,83 @@
 <template>
   <div class="container-wrap">
-    <div class="left position-relative">
-      <div class="items-list d-xl-flex">
-        <div class="items-wrap">
-          <div class="title">PROJECT</div>
-          <div class="items">
-            <div class="item" @click="$router.push('/project/floral_bouquet')">
-              <span class="serif-text">花束</span>Floral bouquet
+    <div ref="footer" class="footer" :class="{ 'slide-up': active }">
+      <div class="left position-relative">
+        <div class="items-list d-xl-flex">
+          <div class="items-wrap">
+            <div class="title">PROJECT</div>
+            <div class="items">
+              <div class="item" @click="$router.push('/project/floral_bouquet')">
+                <span class="serif-text">花束</span>Floral bouquet
+              </div>
+              <div class="item" @click="$router.push('/project/wreath')">
+                <span class="serif-text">花圈</span>Wreath
+              </div>
+              <div class="item" @click="$router.push('/project/floral_box')">
+                <span class="serif-text">花禮/花盒/盆花</span>Floral box
+              </div>
+              <div class="item" @click="$router.push('/project/bridal_bouquet')">
+                <span class="serif-text">捧花/胸花</span>Bridal bouquet
+              </div>
+              <div class="item" @click="$router.push('/project/wedding_decor')">
+                <span class="serif-text">婚禮佈置</span>Wedding decor
+              </div>
             </div>
-            <div class="item" @click="$router.push('/project/wreath')"><span class="serif-text">花圈</span>Wreath</div>
-            <div class="item" @click="$router.push('/project/floral_box')">
-              <span class="serif-text">花禮/花盒/盆花</span>Floral box
+          </div>
+          <div class="items-wrap project-item">
+            <div class="title">FOLLOW US</div>
+            <div class="items">
+              <div class="item" @click="clickHandler('https://www.facebook.com/chuanflowers')">
+                <span class="btn-text">Facebook</span>
+                <b-icon icon="chevron-right" class="arrow-right" />
+              </div>
+              <div class="item" @click="clickHandler('https://www.instagram.com/chuanflowers')">
+                <span class="btn-text">Instagram</span>
+                <b-icon icon="chevron-right" class="arrow-right" />
+              </div>
             </div>
-            <div class="item" @click="$router.push('/project/bridal_bouquet')">
-              <span class="serif-text">捧花/胸花</span>Bridal bouquet
-            </div>
-            <div class="item" @click="$router.push('/project/wedding_decor')">
-              <span class="serif-text">婚禮佈置</span>Wedding decor
+          </div>
+          <div class="items-wrap">
+            <div class="title">CONTACT</div>
+            <div class="items">
+              <div class="item mail">chuanflowers@gmail.com</div>
             </div>
           </div>
         </div>
-        <div class="items-wrap project-item">
-          <div class="title">FOLLOW US</div>
-          <div class="items">
-            <div class="item" @click="clickHandler('https://www.facebook.com/chuanflowers')">
-              <span class="btn-text">Facebook</span>
-              <b-icon icon="chevron-right" class="arrow-right" />
-            </div>
-            <div class="item" @click="clickHandler('https://www.instagram.com/chuanflowers')">
-              <span class="btn-text">Instagram</span>
-              <b-icon icon="chevron-right" class="arrow-right" />
-            </div>
-          </div>
-        </div>
-        <div class="items-wrap">
-          <div class="title">CONTACT</div>
-          <div class="items">
-            <div class="item mail">chuanflowers@gmail.com</div>
-          </div>
-        </div>
+        <div class="copy-right">Copyright © CHUAN FLOWERS. All rights reserved.</div>
       </div>
-      <div class="copy-right">Copyright © CHUAN FLOWERS. All rights reserved.</div>
-    </div>
-    <div class="right">
-      <div class="title">CHUAN FLOWERS</div>
-      <div class="subtitle serif-text">繾綣花藝工作室</div>
-      <div class="area-number">40349</div>
-      <div class="address serif-text" @click="openWindow">
-        台中市西區中美街299巷14號1樓
-      </div>
-      <div class="en-address" @click="openWindow">
-        1F., No. 14, Ln. 299, Zhongmei St., West Dist., Taichung City 403, Taiwan
+      <div class="right">
+        <div class="title">CHUAN FLOWERS</div>
+        <div class="subtitle serif-text">繾綣花藝工作室</div>
+        <div class="area-number">40349</div>
+        <div class="address serif-text" @click="openWindow">
+          台中市西區中美街299巷14號1樓
+        </div>
+        <div class="en-address" @click="openWindow">
+          1F., No. 14, Ln. 299, Zhongmei St., West Dist., Taichung City 403, Taiwan
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import setScroll from '../mixins/setScroll'
+
 export default {
+  mixins: [setScroll],
+  data() {
+    return {
+      active: false,
+    }
+  },
+  watch: {
+    scrollPosition() {
+      const imageLimit = this.getImageLimit('footer')
+      if (!this.active) {
+        this.active = imageLimit < this.scrollPosition
+      }
+    },
+  },
   methods: {
     clickHandler(url) {
       window.open(url)
@@ -65,20 +85,38 @@ export default {
     openWindow() {
       window.open('https://goo.gl/maps/pT6BPqchWNzrXSDf8', 'google map')
     },
+    getImageLimit(el) {
+      return this.$refs[el].offsetTop + this.$refs[el].offsetHeight / 3
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.set-scroll {
+  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+  transform: translate3d(0, 10%, 0);
+  opacity: 0;
+}
+
+.scroll-position {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
 .container-wrap {
-  display: flex;
-  justify-content: space-between;
   padding: 70px 5% 50px;
   background-color: $grey7;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
 .left {
   width: 70%;
+  @extend .set-scroll;
 
   .items-wrap {
     margin-right: 87px;
@@ -145,6 +183,7 @@ export default {
   padding-left: 67px;
   padding-bottom: 347px;
   border-left: 1px solid $grey6;
+  @extend .set-scroll;
 
   .title {
     font-size: 25px;
@@ -170,6 +209,13 @@ export default {
     margin-top: 22px;
     font-size: 12px;
     cursor: pointer;
+  }
+}
+
+.slide-up {
+  .left,
+  .right {
+    @extend .scroll-position;
   }
 }
 
@@ -208,8 +254,11 @@ export default {
 
 @media screen and (max-width: $mobile) {
   .container-wrap {
-    flex-direction: column-reverse;
     padding: 40px 18px 0 16px;
+  }
+
+  .footer {
+    flex-direction: column-reverse;
   }
 
   .right {

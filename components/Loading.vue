@@ -24,6 +24,9 @@ export default {
 }
 
 .position-fixed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: $white;
   width: 100%;
   height: 100vh;
@@ -33,14 +36,11 @@ export default {
 }
 
 .text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
   font-size: 30px;
   writing-mode: vertical-rl;
   letter-spacing: 9px;
   animation: colorTransition 0.75s 0.5;
+  cursor: default;
 }
 
 @media screen and (max-width: $noteBook) {

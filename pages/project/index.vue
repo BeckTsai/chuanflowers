@@ -15,7 +15,7 @@
         <div class="scroll-indocator" />
       </div>
     </div>
-    <div class="project-wrap">
+    <div ref="projectIndex" class="project-wrap" :class="{ 'slide-up': active }">
       <div class="left">
         <div class="title"><span class="serif-text">花藝作品</span></div>
         <div class="subtitle serif-text">工作室採預約制服務，請先訊息/電話預約</div>
@@ -40,12 +40,13 @@ import mobilePic3 from '~/assets/image/project/banner_m_3.png'
 import Pic1 from '~/assets/image/project/banner_1.png'
 import Pic2 from '~/assets/image/project/banner_2.png'
 import Pic3 from '~/assets/image/project/banner_3.png'
+import setScroll from '@/mixins/setScroll'
 
 export default {
   components: {
     WorksList,
   },
-  mixins: [device],
+  mixins: [device, setScroll],
   data() {
     return {
       swiperOption: {
@@ -61,6 +62,7 @@ export default {
           crossFade: true,
         },
       },
+      active: false,
       windowWidth: null,
       imgList: [
         { pc: Pic1, mobile: mobilePic1 },
@@ -69,6 +71,14 @@ export default {
       ],
     }
   },
+  watch: {
+    scrollPosition() {
+      const imageLimit = this.getImageLimit('projectIndex')
+      if (!this.active) {
+        this.active = imageLimit < this.scrollPosition
+      }
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.windowWidth = window.outerWidth
@@ -76,6 +86,11 @@ export default {
         this.windowWidth = e.target.outerWidth
       })
     })
+  },
+  methods: {
+    getImageLimit(el) {
+      return this.$refs[el].offsetTop + this.$refs[el].offsetHeight / 4
+    },
   },
 }
 </script>
@@ -99,6 +114,17 @@ export default {
     height: 0;
     top: 100%;
   }
+}
+
+.set-scroll {
+  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
+  transform: translate3d(0, 10%, 0);
+  opacity: 0;
+}
+
+.scroll-position {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .img-wrap {
@@ -127,6 +153,7 @@ export default {
   color: $white;
   writing-mode: vertical-lr;
   z-index: 1;
+  cursor: default;
 }
 
 .project-wrap {
@@ -174,6 +201,8 @@ export default {
 }
 
 .left {
+  @extend .set-scroll;
+
   .title {
     font-size: 22px;
     letter-spacing: 2.2px;
@@ -196,6 +225,7 @@ export default {
 }
 
 .right {
+  @extend .set-scroll;
   margin-top: 139px;
 
   .title {
@@ -221,6 +251,13 @@ export default {
     &:hover {
       color: $pink;
     }
+  }
+}
+
+.slide-up {
+  .left,
+  .right {
+    @extend .scroll-position;
   }
 }
 

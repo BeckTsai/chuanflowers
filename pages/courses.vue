@@ -6,7 +6,7 @@
       <div class="subtitle serif-text">畢業花束預購開放</div>
       <div class="date">2020/06/07</div>
       <div class="img-wrap">
-        <img src="@/assets/image/courses/pic1.png" />
+        <img src="@/assets/image/courses/pic1.JPG" />
       </div>
       <div class="text serif-text" v-html="textList[0]" />
       <div class="img-wrap">

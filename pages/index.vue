@@ -143,6 +143,7 @@ export default {
   animation: colorTransition 0.75s 0.5;
   color: #fff;
   z-index: 1;
+  cursor: default;
 }
 
 .scroll-wrap {

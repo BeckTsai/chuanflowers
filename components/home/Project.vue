@@ -46,7 +46,13 @@
         <div class="list">05</div>
       </div>
     </div>
-    <div id="slider" v-swiper="swiperOption" class="slider">
+    <div
+      id="slider"
+      ref="mobileProject"
+      v-swiper="swiperOption"
+      class="slider"
+      :class="{ 'scroll-up': mobileProjectImageLimit }"
+    >
       <div class="swiper-wrapper">
         <div
           v-for="(item, idx) in imgList"
@@ -106,11 +112,13 @@ export default {
     project3Active: false,
     project4Active: false,
     project5Active: false,
+    mobileProjectActive: false,
     project1ImageLimit: 0,
     project2ImageLimit: 0,
     project3ImageLimit: 0,
     project4ImageLimit: 0,
     project5ImageLimit: 0,
+    mobileProjectImageLimit: 0,
   }),
   watch: {
     scrollPosition() {
@@ -141,6 +149,10 @@ export default {
       if (!this.project5Active) {
         this.project5Active = this.project5ImageLimit < this.scrollPosition
       }
+
+      if (!this.mobileProjectActive) {
+        this.mobileProjectActive = this.mobileProjectImageLimit < this.scrollPosition
+      }
     },
   },
   mounted() {
@@ -150,6 +162,7 @@ export default {
       this.project3ImageLimit = this.getPoisonHeight('project3')
       this.project4ImageLimit = this.getPoisonHeight('project4')
       this.project5ImageLimit = this.getPoisonHeight('project5')
+      // this.mobileProjectImageLimit = this.getPoisonHeight('mobileProject')
     })
   },
 }
@@ -158,7 +171,7 @@ export default {
 <style lang="scss" scoped>
 .set-scroll {
   transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-  transform: translate3d(0, 10%, 0);
+  transform: translate3d(0, 50px, 0);
   opacity: 0;
 }
 
@@ -292,7 +305,8 @@ export default {
   .list,
   .item-text {
     @extend .scroll-position;
-    transition-delay: 0.4s;
+    transition-duration: 1.4s;
+    // transition-delay: 0.4s;
   }
 }
 
