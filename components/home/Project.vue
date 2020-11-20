@@ -170,14 +170,19 @@ export default {
 
 <style lang="scss" scoped>
 .set-scroll {
-  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-  transform: translate3d(0, 50px, 0);
+  transition: 1s linear;
+  transform: translate3d(0, 20px, 0);
   opacity: 0;
 }
 
 .scroll-position {
   transform: translate3d(0, 0, 0);
   opacity: 1;
+}
+
+.set-opacity {
+  transition: 1s 0.2s linear;
+  opacity: 0;
 }
 
 .project-wrap {
@@ -214,7 +219,7 @@ export default {
     left: 14px;
     color: $grey1;
     font-size: 50px;
-    @extend .set-scroll;
+    @extend .set-opacity;
   }
 
   .img-wrap {
@@ -250,7 +255,7 @@ export default {
   .item-text {
     font-size: 18px;
     text-align: right;
-    @extend .set-scroll;
+    @extend .set-opacity;
 
     .serif-text {
       margin-right: 5px;
@@ -304,9 +309,8 @@ export default {
 
   .list,
   .item-text {
-    @extend .scroll-position;
+    opacity: 1;
     transition-duration: 1.4s;
-    // transition-delay: 0.4s;
   }
 }
 

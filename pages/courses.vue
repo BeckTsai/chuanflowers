@@ -36,6 +36,7 @@
 
 <script>
 import WorksList from '../components/Courses/WorksList'
+
 export default {
   components: {
     WorksList,
@@ -74,6 +75,17 @@ export default {
   opacity: 1;
 }
 
+@keyframes slideUP {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .courses {
   background-color: $white;
 }
@@ -82,6 +94,7 @@ export default {
   width: 1043px;
   margin: 0 auto;
   padding-top: 172px;
+  animation: slideUP 1s linear;
 }
 
 .title {

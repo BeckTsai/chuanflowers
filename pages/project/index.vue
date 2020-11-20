@@ -117,8 +117,8 @@ export default {
 }
 
 .set-scroll {
-  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-  transform: translate3d(0, 10%, 0);
+  transition: 1s linear;
+  transform: translate3d(0, 20px, 0);
   opacity: 0;
 }
 
@@ -159,7 +159,7 @@ export default {
 .project-wrap {
   display: flex;
   justify-content: space-between;
-  padding: 297px 171px 107px 96px;
+  padding: 130px 171px 107px 96px;
 }
 
 .scroll-wrap {
@@ -300,6 +300,7 @@ export default {
   }
 
   .swiper-text {
+    height: 290px;
     font-size: 20px;
   }
 

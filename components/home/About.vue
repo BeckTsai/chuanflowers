@@ -1,5 +1,5 @@
 <template>
-  <div ref="about" class="d-xl-flex position-relative" :class="{ 'slide-up': active }">
+  <div ref="about" class="about d-xl-flex position-relative" :class="{ 'slide-up': active }">
     <div class="about-wrap">
       <div class="about-title">ABOUT</div>
       <div class="line"></div>
@@ -43,14 +43,18 @@ export default {
 
 <style lang="scss" scoped>
 .set-scroll {
-  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-  transform: translate3d(0, 10%, 0);
+  transition: 1s 0.2s linear;
+  transform: translate3d(0, 20px, 0);
   opacity: 0;
 }
 
 .scroll-position {
   transform: translate3d(0, 0, 0);
   opacity: 1;
+}
+
+.about {
+  opacity: 0;
 }
 
 .about-wrap {
@@ -140,6 +144,11 @@ export default {
 }
 
 .slide-up {
+  &.about {
+    transition: 1s linear;
+    opacity: 1;
+  }
+
   .about-wrap {
     @extend .scroll-position;
   }
@@ -147,7 +156,7 @@ export default {
   .content,
   .text {
     @extend .scroll-position;
-    transition-delay: 0.2s;
+    transition-delay: 0.3s;
   }
 }
 

@@ -256,6 +256,7 @@ body {
   position: absolute;
   top: 100%;
   width: 100%;
+  background-color: $white;
   border: 1px solid $white;
   transition: transform 0.4s, top 0.4s 0.4s, background-color 0.5s;
 
@@ -285,6 +286,7 @@ body {
   .menu-line {
     top: 50%;
     transform: rotate(45deg);
+    background: #000;
     border-color: #000;
     transition: top 0.4s, transform 0.4s 0.4s, border-color 0.4s 0.4s;
 
@@ -316,6 +318,7 @@ body {
   }
 
   .menu-line {
+    background-color: #000;
     border-color: #000;
   }
 

@@ -49,8 +49,8 @@ export default {
 
 <style lang="scss" scoped>
 .set-scroll {
-  transition: 1s cubic-bezier(0.75, 0.165, 0.715, 0.585);
-  transform: translate3d(0, 10%, 0);
+  transition: 1s linear;
+  transform: translate3d(0, 20px, 0);
   opacity: 0;
 }
 
@@ -204,7 +204,6 @@ export default {
 
   .img-wrap {
     @extend .scroll-position;
-    transition-delay: 0.2s;
   }
 }
 
