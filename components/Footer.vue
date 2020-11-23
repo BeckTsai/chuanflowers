@@ -47,7 +47,7 @@
       </div>
       <div class="right">
         <div class="title">CHUAN Flowers</div>
-        <div class="subtitle serif-text">繾綣</div>
+        <div class="subtitle serif-text">繾 綣</div>
         <div class="area-number">40349</div>
         <div class="address serif-text" @click="openWindow">
           台中市西區中美街299巷14號1樓
