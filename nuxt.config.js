@@ -4,17 +4,17 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: '繾綣花藝工作室｜Chuanflowers',
+    title: '繾 綣｜CHUAN Flowers',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
       { hid: 'description', name: 'description', content: '花藝設計｜花束設計｜婚禮布置' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:title', property: 'og:title', content: '繾綣｜CHUAN Flowers' },
+      { hid: 'og:title', property: 'og:title', content: '繾 綣｜CHUAN Flowers' },
       { hid: 'og:description', property: 'og:description', content: '花藝設計｜花束設計｜婚禮布置' },
       { hid: 'og:url', property: 'og:url', content: 'http://www.chuanflowers.com' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'CHUAN Flowers' },
-      { hid: 'fb:admins', property: 'fb:admins', content: '繾綣｜CHUAN Flowers' },
+      { hid: 'fb:admins', property: 'fb:admins', content: '繾 綣｜CHUAN Flowers' },
       { hid: 'fb_admins_meta_tag', property: 'fb_admins_meta_tag', content: 'CHUAN Flowers' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
