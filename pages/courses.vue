@@ -31,17 +31,6 @@
         <span class="btn-text serif-text">填寫聖誕節預購表單</span>
         <b-icon icon="chevron-right" class="arrow-right" />
       </div>
-      <!-- <div class="img-wrap">
-        <img src="@/assets/image/courses/pic3.png" />
-      </div>
-      <div class="img-wrap">
-        <img src="@/assets/image/courses/pic4.png" />
-      </div>
-      <div class="freight-text serif-text">台灣全島宅配運費 250 元，台中自取免運費。</div>
-      <div class="link">
-        <span class="btn-text serif-text">填寫訂購表單</span>
-        <b-icon icon="chevron-right" class="arrow-right" />
-      </div> -->
       <div class="works-wrap">
         <div class="work-title">OTHER WORKS</div>
         <WorksList />
