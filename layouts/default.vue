@@ -120,6 +120,7 @@ body {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: $grey3;
+  user-select: none;
 }
 
 *,

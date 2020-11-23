@@ -46,8 +46,8 @@
         <div class="copy-right">Copyright © CHUAN FLOWERS. All rights reserved.</div>
       </div>
       <div class="right">
-        <div class="title">CHUAN FLOWERS</div>
-        <div class="subtitle serif-text">繾綣花藝工作室</div>
+        <div class="title">CHUAN Flowers</div>
+        <div class="subtitle serif-text">繾綣</div>
         <div class="area-number">40349</div>
         <div class="address serif-text" @click="openWindow">
           台中市西區中美街299巷14號1樓
@@ -83,7 +83,7 @@ export default {
       window.open(url)
     },
     openWindow() {
-      window.open('https://goo.gl/maps/pT6BPqchWNzrXSDf8', 'google map')
+      window.open('https://g.page/chuanflowers?share', 'google map')
     },
     getImageLimit(el) {
       return this.$refs[el].offsetTop + this.$refs[el].offsetHeight / 3
