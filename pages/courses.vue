@@ -3,29 +3,45 @@
     <div class="courses-container">
       <div class="title">COURSES</div>
       <div class="line" />
-      <div class="subtitle serif-text">畢業花束預購開放</div>
-      <div class="date">2020/06/07</div>
-      <div class="img-wrap">
-        <img src="@/assets/image/courses/pic1.JPG" />
-      </div>
+      <div class="subtitle serif-text">CHUAN Christmas</div>
+      <div class="date">2020/11/23 - 2020/12/05</div>
       <div class="text serif-text" v-html="textList[0]" />
+      <div class="link" @click="openUrl('https://forms.gle/q2QmRCeHjHrwG85e7')">
+        <span class="btn-text serif-text">報名花藝課</span>
+        <b-icon icon="chevron-right" class="arrow-right" />
+      </div>
+      <div class="link" @click="openUrl('https://forms.gle/YRkMK56KRuXCquS37')">
+        <span class="btn-text serif-text">預購聖誕樹</span>
+        <b-icon icon="chevron-right" class="arrow-right" />
+      </div>
       <div class="img-wrap">
-        <img src="@/assets/image/courses/pic2.png" />
+        <img src="@/assets/image/courses/S__19554349.jpg" />
+      </div>
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/S__19554351.jpg" />
       </div>
       <div class="text serif-text" v-html="textList[1]" />
-      <div class="img-wrap">
-        <img src="@/assets/image/courses/pic3.png" />
+      <div class="link" @click="openUrl('https://forms.gle/q2QmRCeHjHrwG85e7')">
+        <span class="btn-text serif-text">填寫報名課程表單</span>
+        <b-icon icon="chevron-right" class="arrow-right" />
       </div>
       <div class="text serif-text" v-html="textList[2]" />
+      <div class="text serif-text" v-html="textList[3]" />
+      <div class="link long" @click="openUrl('https://forms.gle/YRkMK56KRuXCquS37')">
+        <span class="btn-text serif-text">填寫聖誕節預購表單</span>
+        <b-icon icon="chevron-right" class="arrow-right" />
+      </div>
+      <!-- <div class="img-wrap">
+        <img src="@/assets/image/courses/pic3.png" />
+      </div>
       <div class="img-wrap">
         <img src="@/assets/image/courses/pic4.png" />
       </div>
-      <div class="text serif-text" v-html="textList[3]" />
       <div class="freight-text serif-text">台灣全島宅配運費 250 元，台中自取免運費。</div>
       <div class="link">
         <span class="btn-text serif-text">填寫訂購表單</span>
         <b-icon icon="chevron-right" class="arrow-right" />
-      </div>
+      </div> -->
       <div class="works-wrap">
         <div class="work-title">OTHER WORKS</div>
         <WorksList />
@@ -50,14 +66,19 @@ export default {
         '@/assets/image/courses/pic4.png',
       ],
       textList: [
-        '小時候最討厭大人說「當學生很幸福」，長大以後卻不斷不斷地回憶那段當學生的日子。<br/><br/>高中是我最喜歡的求學時代，身邊總是圍繞著各種強者，做什麼事都拼盡全力。高一買了人生第一把Bass，每天瘋狂練琴練到手發炎，和一起玩團的夥伴吵架然後吃飯和好。高三的日子充滿考不完的試，下課組隊去尿尿，中午一到就衝到福利社搶便當。畢業時在禮堂聽著蘇打綠的歌，看著這些重要的人，默默落下兩行道別的淚。<br/><br/>那時的幸福來自於整個教室裡的人都朝著同樣的目標努力，也因此產生一種革命情感，畢業多年都不會忘記那段日子。<br/><br/>今年畢業季準備了經典的向日葵，黃澄澄的像大好的未來。也有愛情花、鬱金香花束給想把握機會向喜歡的人告白的同學。<br/><br/>預購資訊<br/><br/>截止時間--- 6/7（日）23:00<br/> 取花時間--- 6/5（五）～6/28（日）平日13:00-21:00，週六日 11:00-19:00<br/> 若需於其他時間取花，請先訊息與我們確認時間。',
-        '向日葵畢業花束<br/>款式｜藍・黑<br/>尺寸｜含包裝約 30x35 cm　980 元 ＊預購截止後恢復原價 1280 元',
-        '滿天星畢業花束<br/>款式｜裸粉・黑<br/>尺寸｜含包裝約 50x55 cm　1280 元 ＊預購截止後恢復原價 1580 元',
-        '鬱金香畢業花束<br/>尺寸｜含包裝約 35x40 cm　980 元 ＊預購截止後恢復原價 1080 元<br/>鬱金香花束會使用含苞狀態之花朵製作，建議用花當日取花，前一天取建議冷藏',
+        '小時候家裡有一棵聖誕樹，塑膠製的，組合起來比我還高的那種。每年都會拉著媽媽一起去逛賣場挑新的裝飾品，各種顏色的吊球、星星、麋鹿、小人偶、金色的Merry Christmas，然後在12月開始時把它們一一掛上去，日子就像歐美節日電影那樣繽紛了。<br/><br/>那樣的儀式感帶來的快樂長大以後就少了，去百貨公司跟聖誕造景拍張照也就含糊過去了。現在的社會慶祝節日的選擇太多，似乎變相剝奪了自己創造的機會。<br/><br/>今年，自己做一棵聖誕樹吧。使用混合松柏從無到有的自己插出一棵樹，再加上喜歡的裝飾品。回到兒時期待樹下放了什麼禮物的純真，讓日子再一次繽紛起來。',
+        '░課程資訊<br/><br/>🌲聖誕小樹仔課程<br/><br/>12/13（日）15:00-18:00<br/>12/16（三）19:00-22:00<br/>以上場次上限 3 人，額滿為止。<br/>地點｜繾綣    台中市西區中美街299巷14號1樓<br/>≣<br/>12/19（六）13:00-16:00<br/>12/20（日）18:00-21:00<br/>此場次上限 8 人，額滿為止。<br/>地點｜台中市中區成功路168號<br/><br/>費用｜2,500元/人，兩人以上同行、舊生報名九折ʕ•ᴥ•ʔ<br/><br/>內容｜新鮮松柏、乾燥裝飾品、木頭底座，完成總高度約 35 cm<br/><br/><br/>🌲聖誕圈圈仔課程 <br/><br/>12/18（五）19:00-22:00 <br/>此場次上限 3 人，額滿為止。<br/>地點｜繾綣    台中市西區中美街299巷14號1樓<br/>≣<br/>12/19（六）18:00-21:00  <br/>12/20（日）13:00-16:00<br/>以上場次上限 8 人，額滿為止。<br/>地點｜台中市中區成功路168號<br/><br/>費用｜2,200元/人，兩人以上同行、舊生報名九折ʕ•ᴥ•ʔ<br/><br/>內容｜新鮮松柏、乾燥裝飾品、藤圈，完成直徑約 30 cm',
+        '░預購資訊<br/>12/5（六）23:59 截止<br/>12/7（一）起依預購順序陸續出貨，如需指定收貨日期請備註。<br/><br/>🌲聖誕小樹仔 <br/>小樹     35cm 紅金/銀灰   1580 元<br/>迷你樹  22cm 紅金/銀灰   980 元<br/><br/>截止後恢復原價 1980 /1280 元',
+        '🌲聖誕圈圈仔<br/>30cm     1580 元<br/>20cm     980 元<br/><br/>截止後恢復原價 1980 /1280 元<br/><br/>🚀取貨方式與運費<br/>工作室自取 0 元<br/>台中市區配送 100 元 （中區、西區、南區、北區、東區、西屯區、南屯區、大里區）<br/>其他地區配送 250 元（黑貓宅急便）',
       ],
     }
   },
   transition: 'default',
+  methods: {
+    openUrl(url) {
+      window.open(url, 'google forms')
+    },
+  },
 }
 </script>
 
@@ -123,6 +144,7 @@ export default {
 }
 
 .img-wrap {
+  margin-top: 20px;
   width: 100%;
 
   img {
@@ -146,11 +168,15 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 27px;
   width: 173px;
   border-bottom: 1px solid $grey3;
   transition: 0.4s;
   cursor: pointer;
+
+  &.long {
+    width: 195px;
+  }
 
   .btn-text {
     font-size: 16px;
