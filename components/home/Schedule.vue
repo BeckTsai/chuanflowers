@@ -8,14 +8,14 @@
           <span class="text serif-text">檔期活動</span>
         </div>
         <div class="img-wrap">
-          <img src="~/assets/image/home/courses-banner.png" />
+          <img src="@/assets/image/courses/S__19554351.jpg" />
         </div>
         <div class="content-wrap">
           <!-- <div class="text serif-text">檔期活動</div> -->
           <div class="content-top serif-text">
-            <div class="inner-title">畢業花束預購開放</div>
+            <div class="inner-title">CHUAN Christmas</div>
             <div class="inner-text">
-              小時候最討厭大人說當學生很幸福，長大卻不斷不斷地回憶那段當學生的日子。畢業只有一次，選一束花給陪你度過青春的朋友吧！
+              自己做一棵聖誕樹吧。使用混合松柏從無到有的自己插出一棵樹，再加上喜歡的裝飾品。回到兒時期待樹下放了什麼禮物的純真，讓日子再一次繽紛起來。
             </div>
           </div>
         </div>

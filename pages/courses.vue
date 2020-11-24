@@ -49,10 +49,10 @@ export default {
   data() {
     return {
       imgList: [
-        '@/assets/image/courses/pic1.png',
-        '@/assets/image/courses/pic2.png',
-        '@/assets/image/courses/pic3.png',
-        '@/assets/image/courses/pic4.png',
+        // '@/assets/image/courses/pic1.png',
+        // '@/assets/image/courses/pic2.png',
+        // '@/assets/image/courses/pic3.png',
+        // '@/assets/image/courses/pic4.png',
       ],
       textList: [
         '小時候家裡有一棵聖誕樹，塑膠製的，組合起來比我還高的那種。每年都會拉著媽媽一起去逛賣場挑新的裝飾品，各種顏色的吊球、星星、麋鹿、小人偶、金色的Merry Christmas，然後在12月開始時把它們一一掛上去，日子就像歐美節日電影那樣繽紛了。<br/><br/>那樣的儀式感帶來的快樂長大以後就少了，去百貨公司跟聖誕造景拍張照也就含糊過去了。現在的社會慶祝節日的選擇太多，似乎變相剝奪了自己創造的機會。<br/><br/>今年，自己做一棵聖誕樹吧。使用混合松柏從無到有的自己插出一棵樹，再加上喜歡的裝飾品。回到兒時期待樹下放了什麼禮物的純真，讓日子再一次繽紛起來。',
