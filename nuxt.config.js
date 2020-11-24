@@ -50,15 +50,16 @@ module.exports = {
   styleResources: {
     scss: ['@/assets/css/_variables.scss'],
   },
-  plugins: [{ src: '@/plugins/vue-awesome-swiper', mode: 'client' }, '@/plugins/vue-lazyload'],
-  googleAnalytics: {
-    id: 'G-DG7ZQH6HP3',
-  },
+  plugins: [
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    '@/plugins/vue-lazyload',
+    { src: '~plugins/ga.js', mode: 'client' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
   components: true,
-  buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/google-fonts', '@nuxtjs/google-analytics'],
+  buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/google-fonts'],
   optimizedImages: {
     optimizeImages: true,
   },

@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@nuxtjs/component-cache": "^1.1.6",
-    "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/google-fonts": "^1.1.2",
     "@nuxtjs/style-resources": "^1.0.0",
     "animate.css": "^4.1.0",
