@@ -54,15 +54,10 @@ module.exports = {
   /*
    ** Nuxt.js dev-modules
    */
+  components: true,
   googleAnalytics: {
     id: 'G-3MTPGD6NTT',
   },
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID,
-    },
-  },
-  components: true,
   buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/google-fonts', '@nuxtjs/google-analytics'],
   optimizedImages: {
     optimizeImages: true,
