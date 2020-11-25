@@ -58,6 +58,11 @@ module.exports = {
   googleAnalytics: {
     id: 'G-3MTPGD6NTT',
   },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
+    },
+  },
   buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/google-fonts', '@nuxtjs/google-analytics'],
   optimizedImages: {
     optimizeImages: true,
