@@ -60,7 +60,7 @@ module.exports = {
    */
   components: true,
   googleAnalytics: {
-    id: 'G-3MTPGD6NTT',
+    id: 'UA-91758816-2',
   },
   buildModules: ['@aceforth/nuxt-optimized-images', '@nuxtjs/google-fonts', '@nuxtjs/google-analytics'],
   optimizedImages: {
