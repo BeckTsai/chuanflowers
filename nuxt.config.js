@@ -53,7 +53,7 @@ module.exports = {
   plugins: [
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
     '@/plugins/vue-lazyload',
-    { src: '~plugins/ga.js', mode: 'client' },
+    // { src: '~plugins/ga.js', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
