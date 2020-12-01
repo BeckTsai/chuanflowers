@@ -8,10 +8,10 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
-      { hid: 'description', name: 'description', content: '花藝設計｜花束設計｜婚禮布置' },
+      { hid: 'description', name: 'description', content: '捧花・花束・花藝課程・婚禮佈置' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:title', property: 'og:title', content: '繾 綣｜CHUAN Flowers' },
-      { hid: 'og:description', property: 'og:description', content: '花藝設計｜花束設計｜婚禮布置' },
+      { hid: 'og:description', property: 'og:description', content: '捧花・花束・花藝課程・婚禮佈置' },
       { hid: 'og:url', property: 'og:url', content: 'http://www.chuanflowers.com' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'CHUAN Flowers' },
       { hid: 'fb:admins', property: 'fb:admins', content: '繾 綣｜CHUAN Flowers' },
@@ -96,4 +96,5 @@ module.exports = {
       useShortDoctype: true,
     },
   },
+  buildDir: 'nuxt-dist',
 }
