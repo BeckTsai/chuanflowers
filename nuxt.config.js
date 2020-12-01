@@ -8,6 +8,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+      { name: 'google-site-verification', content: 'S2mbpFnmwU8ouwT4WRXhUK0625ReU7kxqCxTdFAg_P8' },
       { hid: 'description', name: 'description', content: '捧花・花束・花藝課程・婚禮佈置' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:title', property: 'og:title', content: '繾 綣｜CHUAN Flowers' },
