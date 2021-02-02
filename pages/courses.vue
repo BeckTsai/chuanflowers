@@ -3,32 +3,24 @@
     <div class="courses-container">
       <div class="title">COURSES</div>
       <div class="line" />
-      <div class="subtitle serif-text">CHUAN Christmas</div>
-      <div class="date">2020/11/23 - 2020/12/05</div>
+      <div class="subtitle serif-text">年節花藝課程</div>
+      <div class="date">Feb. 2021</div>
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/01.jpg" />
+      </div>
       <div class="text serif-text" v-html="textList[0]" />
-      <div class="link" @click="openUrl('https://forms.gle/q2QmRCeHjHrwG85e7')">
-        <span class="btn-text serif-text">報名花藝課</span>
-        <b-icon icon="chevron-right" class="arrow-right" />
-      </div>
-      <div class="link" @click="openUrl('https://forms.gle/YRkMK56KRuXCquS37')">
-        <span class="btn-text serif-text">預購聖誕樹</span>
-        <b-icon icon="chevron-right" class="arrow-right" />
-      </div>
       <div class="img-wrap">
-        <img src="@/assets/image/courses/S__19554349.jpg" />
-      </div>
-      <div class="img-wrap">
-        <img src="@/assets/image/courses/S__19554351.jpg" />
+        <img :style="{ width: '48%' }" src="@/assets/image/courses/03.jpg" />
+        <img :style="{ width: '48%' }" src="@/assets/image/courses/04.jpg" />
       </div>
       <div class="text serif-text" v-html="textList[1]" />
-      <div class="link" @click="openUrl('https://forms.gle/q2QmRCeHjHrwG85e7')">
-        <span class="btn-text serif-text">填寫報名課程表單</span>
+      <div class="text serif-text" v-html="textList[2]" />
+      <div class="link" @click="openUrl('https://forms.gle/NrWSrNa4zE2yw8dG9')">
+        <span class="btn-text serif-text">日式注連繩花藝課</span>
         <b-icon icon="chevron-right" class="arrow-right" />
       </div>
-      <div class="text serif-text" v-html="textList[2]" />
-      <div class="text serif-text" v-html="textList[3]" />
-      <div class="link long" @click="openUrl('https://forms.gle/YRkMK56KRuXCquS37')">
-        <span class="btn-text serif-text">填寫聖誕節預購表單</span>
+      <div class="link" @click="openUrl('https://forms.gle/qXJzdM1BHkyVVQ6e8')">
+        <span class="btn-text serif-text">春季歐式盆花花藝課</span>
         <b-icon icon="chevron-right" class="arrow-right" />
       </div>
       <div class="works-wrap">
@@ -55,10 +47,9 @@ export default {
         // '@/assets/image/courses/pic4.png',
       ],
       textList: [
-        '小時候家裡有一棵聖誕樹，塑膠製的，組合起來比我還高的那種。每年都會拉著媽媽一起去逛賣場挑新的裝飾品，各種顏色的吊球、星星、麋鹿、小人偶、金色的Merry Christmas，然後在12月開始時把它們一一掛上去，日子就像歐美節日電影那樣繽紛了。<br/><br/>那樣的儀式感帶來的快樂長大以後就少了，去百貨公司跟聖誕造景拍張照也就含糊過去了。現在的社會慶祝節日的選擇太多，似乎變相剝奪了自己創造的機會。<br/><br/>今年，自己做一棵聖誕樹吧。使用混合松柏從無到有的自己插出一棵樹，再加上喜歡的裝飾品。回到兒時期待樹下放了什麼禮物的純真，讓日子再一次繽紛起來。',
-        '░課程資訊<br/><br/>🌲聖誕小樹仔課程<br/><br/>12/13（日）15:00-18:00<br/>12/16（三）19:00-22:00<br/>以上場次上限 3 人，額滿為止。<br/>地點｜繾綣    台中市西區中美街299巷14號1樓<br/>≣<br/>12/19（六）13:00-16:00<br/>12/20（日）18:00-21:00<br/>此場次上限 8 人，額滿為止。<br/>地點｜台中市中區成功路168號<br/><br/>費用｜2,500元/人，兩人以上同行、舊生報名九折ʕ•ᴥ•ʔ<br/><br/>內容｜新鮮松柏、乾燥裝飾品、木頭底座，完成總高度約 35 cm<br/><br/><br/>🌲聖誕圈圈仔課程 <br/><br/>12/18（五）19:00-22:00 <br/>此場次上限 3 人，額滿為止。<br/>地點｜繾綣    台中市西區中美街299巷14號1樓<br/>≣<br/>12/19（六）18:00-21:00  <br/>12/20（日）13:00-16:00<br/>以上場次上限 8 人，額滿為止。<br/>地點｜台中市中區成功路168號<br/><br/>費用｜2,200元/人，兩人以上同行、舊生報名九折ʕ•ᴥ•ʔ<br/><br/>內容｜新鮮松柏、乾燥裝飾品、藤圈，完成直徑約 30 cm',
-        '░預購資訊<br/>12/5（六）23:59 截止<br/>12/7（一）起依預購順序陸續出貨，如需指定收貨日期請備註。<br/><br/>🌲聖誕小樹仔 <br/>小樹     35cm 紅金/銀灰   1580 元<br/>迷你樹  22cm 紅金/銀灰   980 元<br/><br/>截止後恢復原價 1980 /1280 元',
-        '🌲聖誕圈圈仔<br/>30cm     1580 元<br/>20cm     980 元<br/><br/>截止後恢復原價 1980 /1280 元<br/><br/>🚀取貨方式與運費<br/>工作室自取 0 元<br/>台中市區配送 100 元 （中區、西區、南區、北區、東區、西屯區、南屯區、大里區）<br/>其他地區配送 250 元（黑貓宅急便）',
+        '學了花藝之後每年過年我媽都叫我要帶一盆花回家，說初一別人來家裡玩她可以拿來炫耀，很有面子，順便幫我打廣告。',
+        '年節課程有日式的乾燥花注連繩與歐式鮮花盆花，盆花課會搭配很多一年一度、春天才有的花材，用優雅的粉橘色系，很適合年節的氣氛又不會太俗氣。基礎的海綿盆花插作適合任何程度的同學體驗。',
+        '❒ 年節期間若無法參加團體班，兩人以上報名可以直接私訊我們預約時間上課。課程資訊請參考報名表單。',
       ],
     }
   },
@@ -133,6 +124,8 @@ export default {
 }
 
 .img-wrap {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
   width: 100%;
 
@@ -158,7 +151,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-top: 27px;
-  width: 173px;
+  width: fit-content;
   border-bottom: 1px solid $grey3;
   transition: 0.4s;
   cursor: pointer;

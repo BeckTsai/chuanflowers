@@ -97,5 +97,4 @@ module.exports = {
       useShortDoctype: true,
     },
   },
-  buildDir: 'nuxt-dist',
 }

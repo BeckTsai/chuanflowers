@@ -8,14 +8,14 @@
           <span class="text serif-text">檔期活動</span>
         </div>
         <div class="img-wrap">
-          <img src="@/assets/image/courses/S__19554351.jpg" />
+          <img src="@/assets/image/courses/01.jpg" />
         </div>
         <div class="content-wrap">
           <!-- <div class="text serif-text">檔期活動</div> -->
           <div class="content-top serif-text">
-            <div class="inner-title">CHUAN Christmas</div>
+            <div class="inner-title">年節花藝課程</div>
             <div class="inner-text">
-              自己做一棵聖誕樹吧。使用混合松柏從無到有的自己插出一棵樹，再加上喜歡的裝飾品。回到兒時期待樹下放了什麼禮物的純真，讓日子再一次繽紛起來。
+              學了花藝之後每年過年我媽都叫我要帶一盆花回家，說初一別人來家裡玩她可以拿來炫耀，很有面子，順便幫我打廣告。
             </div>
           </div>
         </div>
