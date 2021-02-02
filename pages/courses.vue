@@ -124,8 +124,6 @@ export default {
 }
 
 .img-wrap {
-  display: flex;
-  justify-content: space-between;
   margin-top: 20px;
   width: 100%;
 
