@@ -7,4 +7,5 @@ Vue.use(VueLazyload, {
   preLoad: 1,
   loading: loading,
   attempt: 1,
+  observer: true,
 })
