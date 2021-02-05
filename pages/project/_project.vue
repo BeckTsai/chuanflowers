@@ -10,7 +10,7 @@
       <div class="img-list">
         <div
           v-for="(item, idx) in imgItems"
-          :key="idx"
+          :key="`item-${item.src}`"
           class="img-wrap"
           :class="[item.type]"
           @click="clickHandler(idx)"
