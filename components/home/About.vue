@@ -188,7 +188,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .about-wrap {
     display: flex;
     position: absolute;

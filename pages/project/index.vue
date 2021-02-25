@@ -293,7 +293,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .project-wrap {
     display: block;
     padding: 93px 0 0 17px;

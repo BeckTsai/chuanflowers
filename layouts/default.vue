@@ -358,7 +358,7 @@ body {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .logo {
     top: 16px;
     left: 22px;

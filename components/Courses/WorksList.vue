@@ -142,7 +142,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .list-wrap {
     display: block;
   }

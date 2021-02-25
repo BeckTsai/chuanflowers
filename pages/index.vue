@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         <div v-for="(img, index) in imgList" :key="index" class="swiper-slide banner-slider" :style="heightStyle">
           <picture>
-            <source class="img-wrap" :srcset="img.mobile" media="(max-width: 760px)" />
+            <source class="img-wrap" :srcset="img.mobile" media="(max-width: 1024px)" />
             <img class="img-wrap" :src="img.pc" alt="" />
           </picture>
         </div>
@@ -46,6 +46,7 @@ export default {
         effect: 'fade',
         loop: true,
         speed: 5000,
+        allowTouchMove: false,
         autoplay: {
           delay: 5000,
           stopOnLastSlide: false,
@@ -202,19 +203,24 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .text {
     height: 360px;
     font-size: 20px;
   }
 
+  // .img-wrap {
+  //   width: 100vw;
+  // }
+
   .swiper-slide {
     height: 100vh;
+    width: 100%;
     overflow: hidden;
 
     img {
       position: absolute;
-      width: initial;
+      width: 100%;
       height: 100%;
     }
   }
@@ -224,6 +230,20 @@ export default {
     &::before,
     &::after {
       height: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: $pad) {
+  .swiper-slide {
+    height: 100vh;
+    width: initial;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: initial;
+      height: 100%;
     }
   }
 }

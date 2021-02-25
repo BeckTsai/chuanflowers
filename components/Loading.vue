@@ -50,7 +50,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .text {
     height: 360px;
     font-size: 20px;

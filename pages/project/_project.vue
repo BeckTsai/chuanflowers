@@ -467,7 +467,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .swiper-top {
     margin-top: 110px;
     .swiper-slide {

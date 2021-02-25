@@ -250,7 +250,7 @@ export default {
   }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $pad) {
   .schedule-contain {
     padding: 32% 18px 7%;
   }
