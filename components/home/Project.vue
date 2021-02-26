@@ -7,7 +7,7 @@
     <div class="items-wrap">
       <div ref="project1" class="item-wrap" :class="{ 'slide-up': project1Active }">
         <div class="img-wrap" @click="$router.push('/project/floral_bouquet')">
-          <img src="@/assets/image/home/floral-bouquet.png" alt="Floral bouquet" />
+          <img v-lazy="require('@/assets/image/home/floral-bouquet.png')" alt="Floral bouquet" />
           <div class="mask" />
         </div>
         <div class="item-text"><span class="serif-text">花束</span>Floral bouquet</div>
@@ -15,7 +15,7 @@
       </div>
       <div ref="project2" class="item-wrap" :class="{ 'slide-up': project2Active }">
         <div class="img-wrap" @click="$router.push('/project/wreath')">
-          <img src="@/assets/image/home/wreath.png" alt="Wreath" />
+          <img v-lazy="require('@/assets/image/home/wreath.png')" alt="Wreath" />
           <div class="mask" />
         </div>
         <div class="item-text"><span class="serif-text">花圈</span>Wreath</div>
@@ -23,7 +23,7 @@
       </div>
       <div ref="project3" class="item-wrap" :class="{ 'slide-up': project3Active }">
         <div class="img-wrap" @click="$router.push('/project/floral_box')">
-          <img src="@/assets/image/home/floral-box.png" alt="Floral box" />
+          <img v-lazy="require('@/assets/image/home/floral-box.png')" alt="Floral box" />
           <div class="mask" />
         </div>
         <div class="item-text"><span class="serif-text">花禮/花盒/盆花</span>Floral box</div>
@@ -31,7 +31,7 @@
       </div>
       <div ref="project4" class="item-wrap" :class="{ 'slide-up': project4Active }">
         <div class="img-wrap" @click="$router.push('/project/bridal_bouquet')">
-          <img src="@/assets/image/home/bridal-bouquet.png" alt="Bridal bouquet" />
+          <img v-lazy="require('@/assets/image/home/bridal-bouquet.png')" alt="Bridal bouquet" />
           <div class="mask" />
         </div>
         <div class="item-text"><span class="serif-text">捧花/胸花</span>Bridal bouquet</div>
@@ -39,7 +39,7 @@
       </div>
       <div ref="project5" class="item-wrap" :class="{ 'slide-up': project5Active }">
         <div class="img-wrap" @click="$router.push('/project/wedding_decor')">
-          <img src="@/assets/image/home/wedding-decor.png" alt="Wedding decor" />
+          <img v-lazy="require('@/assets/image/home/wedding-decor.png')" alt="Wedding decor" />
           <div class="mask" />
         </div>
         <div class="item-text"><span class="serif-text">婚禮佈置</span>Wedding decor</div>
@@ -128,9 +128,6 @@ export default {
       }
 
       if (!this.project1Active) {
-        console.log(this.project1ImageLimit)
-        console.log(this.scrollPosition)
-        console.log(this.$refs.project1.getBoundingClientRect())
         this.project1Active = this.project1ImageLimit < this.scrollPosition
       }
 
