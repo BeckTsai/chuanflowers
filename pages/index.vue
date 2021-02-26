@@ -237,6 +237,20 @@ export default {
 @media screen and (max-width: $pad) {
   .swiper-slide {
     height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .swiper-slide {
+    height: 100vh;
     width: initial;
     overflow: hidden;
 
