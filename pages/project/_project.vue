@@ -78,6 +78,7 @@ export default {
           375: { width: 375 },
           414: { width: 414 },
           768: { width: 768 },
+          1024: { width: 1024 },
           1280: { width: 1100 },
         },
         navigation: {
@@ -469,12 +470,12 @@ export default {
 
 @media screen and (max-width: $pad) {
   .swiper-top {
-    margin-top: 110px;
+    margin-top: 170px;
     .swiper-slide {
-      height: 211px;
+      height: 482px;
     }
     .swiper-button-white {
-      top: 291px;
+      top: 475px;
     }
   }
 
@@ -483,7 +484,7 @@ export default {
     padding: 0 17px;
 
     .swiper-slide {
-      height: 57px;
+      height: 132px;
       &.swiper-slide-active {
         border: 2px solid $pink;
       }
@@ -499,7 +500,7 @@ export default {
   }
 
   .works {
-    width: 360px;
+    width: 700px;
     padding: 88px 0 51px;
     background-color: $white;
   }
@@ -561,6 +562,34 @@ export default {
     .subtitle {
       font-size: 20px;
     }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .swiper-top {
+    margin-top: 110px;
+    .swiper-slide {
+      height: 211px;
+    }
+    .swiper-button-white {
+      top: 291px;
+    }
+  }
+  .swiper-thumbs {
+    margin-top: 90px;
+    padding: 0 17px;
+
+    .swiper-slide {
+      height: 57px;
+      &.swiper-slide-active {
+        border: 2px solid $pink;
+      }
+    }
+  }
+  .works {
+    width: 360px;
+    padding: 88px 0 51px;
+    background-color: $white;
   }
 }
 </style>
