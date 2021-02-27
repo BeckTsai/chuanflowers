@@ -14,14 +14,14 @@
         <div class="scroll-indocator" />
       </div>
     </div>
-    <Schedule :scroll-position="scrollPosition" />
+    <!-- <Schedule :scroll-position="scrollPosition" /> -->
     <Project :scroll-position="scrollPosition" />
     <About :scroll-position="scrollPosition" />
   </div>
 </template>
 
 <script>
-import Schedule from '../components/home/Schedule'
+// import Schedule from '../components/home/Schedule'
 import Project from '../components/home/Project'
 import About from '../components/home/About'
 import device from '../mixins/device'
@@ -35,7 +35,7 @@ import Pic3 from '~/assets/image/home/banner_3.png'
 
 export default {
   components: {
-    Schedule,
+    // Schedule,
     Project,
     About,
   },
