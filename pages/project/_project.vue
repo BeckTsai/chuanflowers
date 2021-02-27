@@ -78,7 +78,7 @@ export default {
           375: { width: 375 },
           414: { width: 414 },
           768: { width: 768 },
-          1024: { width: 1024 },
+          1024: { width: 900 },
           1280: { width: 1100 },
         },
         navigation: {
