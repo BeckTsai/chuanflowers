@@ -10,7 +10,7 @@
               HOME
               <span class="serif-text">首頁</span>
             </div>
-            <!-- <div
+            <div
               class="nav"
               @click="changeRoute('/courses')"
               @mouseenter="current = 'pic3'"
@@ -19,7 +19,7 @@
               <span class="nav-line" />
               COURSES
               <span class="serif-text">檔期活動</span>
-            </div> -->
+            </div>
             <div
               class="nav"
               @click="changeRoute('/project')"

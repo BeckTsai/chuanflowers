@@ -3,26 +3,44 @@
     <div class="courses-container">
       <div class="title">COURSES</div>
       <div class="line" />
-      <div class="subtitle serif-text">年節花藝課程</div>
-      <div class="date">Feb. 2021</div>
+      <div class="subtitle serif-text">Mom! I love you</div>
+      <div class="date">April. 2021</div>
       <div class="img-wrap">
         <img src="@/assets/image/courses/01.jpg" />
       </div>
       <div class="text serif-text" v-html="textList[0]" />
-      <div class="img-wrap">
-        <img :style="{ width: '48%' }" src="@/assets/image/courses/03.jpg" />
-        <img :style="{ width: '48%' }" src="@/assets/image/courses/04.jpg" />
+      <div class="link" @click="openUrl('https://forms.gle/bE3qq7zEqkeqaNFCA')">
+        <span class="btn-text serif-text">填寫表單預購</span>
+        <b-icon icon="chevron-right" class="arrow-right" />
       </div>
       <div class="text serif-text" v-html="textList[1]" />
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/02.jpg" />
+      </div>
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/03.jpg" />
+      </div>
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/04.jpg" />
+      </div>
       <div class="text serif-text" v-html="textList[2]" />
-      <div class="link" @click="openUrl('https://forms.gle/NrWSrNa4zE2yw8dG9')">
-        <span class="btn-text serif-text">日式注連繩花藝課</span>
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/05.jpg" />
+      </div>
+      <div class="text serif-text" v-html="textList[3]" />
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/06.jpg" />
+      </div>
+      <div class="text serif-text" v-html="textList[4]" />
+      <div class="img-wrap">
+        <img src="@/assets/image/courses/07.jpg" />
+      </div>
+      <div class="text serif-text" v-html="textList[5]" />
+      <div class="link" @click="openUrl('https://forms.gle/bE3qq7zEqkeqaNFCA')">
+        <span class="btn-text serif-text">預購表單</span>
         <b-icon icon="chevron-right" class="arrow-right" />
       </div>
-      <div class="link" @click="openUrl('https://forms.gle/qXJzdM1BHkyVVQ6e8')">
-        <span class="btn-text serif-text">春季歐式盆花花藝課</span>
-        <b-icon icon="chevron-right" class="arrow-right" />
-      </div>
+      <div class="text serif-text" v-html="textList[6]" />
       <div class="works-wrap">
         <div class="work-title">OTHER WORKS</div>
         <WorksList />
@@ -47,9 +65,13 @@ export default {
         // '@/assets/image/courses/pic4.png',
       ],
       textList: [
-        '學了花藝之後每年過年我媽都叫我要帶一盆花回家，說初一別人來家裡玩她可以拿來炫耀，很有面子，順便幫我打廣告。',
-        '年節課程有日式的乾燥花注連繩與歐式鮮花盆花，盆花課會搭配很多一年一度、春天才有的花材，用優雅的粉橘色系，很適合年節的氣氛又不會太俗氣。基礎的海綿盆花插作適合任何程度的同學體驗。',
-        '❒ 年節期間若無法參加團體班，兩人以上報名可以直接私訊我們預約時間上課。課程資訊請參考報名表單。',
+        '今年也一樣，買束花謝謝媽媽，讓她知道你愛她。',
+        '▰ 預購資訊 <br/>截止日 4/30（五），今年市場花量偏少，若額滿會提早公告截止<br/><br/>母親節花束 30 x 45 cm<br/>桃紫｜柔粉｜裸白<br/>預購價 $1,280 截止後恢復原價 $1,480',
+        '迷你母親節花束 15 x 25 cm<br/>預購價 $400 截止後恢復原價 $500',
+        '單枝康乃馨花束<br/>預購價 $300 截止後恢復原價 $350',
+        '四枝康乃馨小花束<br/>預購價 $520 截止後恢復原價 $650',
+        '取花日5/1（六） - 5/9（日）<br/>平日13:00-19:00，假日11:00-17:00<br/>外縣市冷藏宅配運費 250 元，台中市區配送運費 150 元<br/><br/>▰ 預購方式<br/>填寫表單並完成匯款即完成預購，預購完成後依指定日期出貨。',
+        '▰ 注意事項<br/>· 因今年花市花量不穩定，單枝、四枝康乃馨花束預購時無法挑色，我們實際拿到花後會再公告色系，如欲更換顏色再請告知。<br/>· 包裝色系無法互換。<br/>· 如遇花材缺貨、短少將以相近顏色的等價花材替換，若非常介意請勿購買。',
       ],
     }
   },

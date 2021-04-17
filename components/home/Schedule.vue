@@ -12,11 +12,9 @@
         </div>
         <div class="content-wrap">
           <!-- <div class="text serif-text">檔期活動</div> -->
-          <div class="content-top serif-text">
-            <div class="inner-title">年節花藝課程</div>
-            <div class="inner-text">
-              學了花藝之後每年過年我媽都叫我要帶一盆花回家，說初一別人來家裡玩她可以拿來炫耀，很有面子，順便幫我打廣告。
-            </div>
+          <div class="content-top">
+            <div class="inner-title">Mom! I love you</div>
+            <div class="inner-text serif-text">今年也一樣，買束花謝謝媽媽，讓她知道你愛她。</div>
           </div>
         </div>
         <div class="btn-wrap">
@@ -86,6 +84,7 @@ export default {
   .title {
     display: inline-block;
     vertical-align: middle;
+    color: #fff;
   }
 
   .text {

@@ -14,7 +14,7 @@
         <div class="scroll-indocator" />
       </div>
     </div>
-    <!-- <Schedule :scroll-position="scrollPosition" /> -->
+    <Schedule :scroll-position="scrollPosition" />
     <Project :scroll-position="scrollPosition" />
     <About :scroll-position="scrollPosition" />
   </div>

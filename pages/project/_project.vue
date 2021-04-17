@@ -85,6 +85,9 @@ export default {
           prevEl: '.swiper-button-prev',
           nextEl: '.swiper-button-next',
         },
+        zoom: {
+          maxRatio: 2,
+        },
         on: {
           init: () => {
             this.$nextTick(() => {
@@ -290,10 +293,9 @@ export default {
       display: block;
       margin: 0 auto;
       width: 100%;
-
-      &.straight-picture {
-        top: -109px;
-      }
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }
@@ -403,10 +405,6 @@ export default {
   height: 389px;
 }
 
-.straight-picture {
-  top: -147px;
-}
-
 .works-list {
   margin-left: 11px;
 }
@@ -445,10 +443,6 @@ export default {
         display: block;
         margin: 0 auto;
         width: 100%;
-
-        &.straight-picture {
-          top: -90px;
-        }
       }
     }
   }
