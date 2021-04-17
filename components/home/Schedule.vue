@@ -84,7 +84,6 @@ export default {
   .title {
     display: inline-block;
     vertical-align: middle;
-    color: #fff;
   }
 
   .text {
